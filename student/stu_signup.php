@@ -92,31 +92,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <label for="username" class="col-sm-2 col-form-label">USERNAME</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="username" id="username"
-                                placeholder="username" Required>
+                                placeholder="username" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="email" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
                             <input type="email" class="form-control" name="email" id="email"
-                                placeholder="college E-mail id">
+                                placeholder="college E-mail id" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="password" class="col-sm-2 col-form-label">PASSWORD</label>
                         <div class="col-sm-10">
                             <input type="password" class="form-control" name="password" id="password"
-                                placeholder="password">
+                                placeholder="password" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="cpassword" class="col-sm-2 col-form-label">CONFIRM-PASSWORD</label>
                         <div class="col-sm-10">
                             <input type="password" class="form-control" name="cpassword" id="cpassword"
-                                placeholder="confirm password">
+                                placeholder="confirm password" required>
                         </div>
                     </div>
-                    <button type="submit" class="btn btnsign " >Sign in</button>
+                    <button type="submit" class="btn btnsign" >Sign in</button>
                 </fieldset>
             </form>
         </div>

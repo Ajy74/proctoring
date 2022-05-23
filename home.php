@@ -1,7 +1,9 @@
 <?php
 $student=false;
+$proctor=false;
+$admin=false;
   session_start();
-
+//for student
   if(!isset($_SESSION['Sloggedin']) || $_SESSION['Sloggedin']!=true){
     // header("location:/proctoring/student/stu_login.php");
     // exit;
@@ -9,6 +11,13 @@ $student=false;
   else{
       $student=true;
   }
+//for proctor
+ if(!isset($_SESSION['ploggedin']) || $_SESSION['ploggedin']!=true){
+
+ }
+ else{
+    $proctor=true;
+ }
 
 ?>
 
@@ -91,6 +100,9 @@ $student=false;
       </div>
   </nav>';
   }
+  elseif($proctor){
+      echo '<h1>Welcome Proctor</h1>';
+  }
   else{
       echo '<nav class="navbar navbar-expand-lg navbar-dark background ">
       <div class="container-fluid">
@@ -140,7 +152,7 @@ $student=false;
                           <li>
                               <hr class="dropdown-divider">
                           </li>
-                          <li><a class="dropdown-item" href="#">proctor</a></li>
+                          <li><a class="dropdown-item" href="proctor/pro_signup.php">proctor</a></li>
                           <li>
                               <hr class="dropdown-divider">
                           </li>
@@ -174,6 +186,9 @@ $student=false;
   }
 
 ?>
+
+
+
     
 
     <section class="background">
@@ -243,139 +258,3 @@ $student=false;
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-
-<head>
-    <title>IT_Home</title>
-    <link rel="stylesheet" type="text/css" href="IT_HomeStyle.css" />
-</head>
-
-<body>
-
-    <img src="gitaimage.jpeg" width="100%" height="100%" />
-
-    <nav class="navi">
-        <div>HOME</div>
-        <div>LOGIN</div>
-        <div>LOGOUT</div>
-    </nav>
-    <div class="notice">
-        <div class="box">
-            <section class="n1"> NOTICE:- All Student of CSIT Must be fill the Proctoring ! </section>
-        </div>
-        <!-- <section class="n1"> NOTICE:- All Student of CSIT Must be fill the Proctoring !</section> -->
-<!-- </div>
-
-    <div class="main">
-        <div class="welcom_text_row">
-            <h1>Welcome To CSIT Department</h1>Lets interact with Members of Department
-        </div>
-        <div class="member_row">
-            <div id="mem_c1"></div>
-            <div id="mem_c2" ></div>
-        </div> 
-    </div>
-  -->
-
-
-
-
-
-
-
-
-
-<!-- <div class="container">
-        <div class="img_row">
-            <img  src="gitaimage.jpeg" width="100%" height="100%" />
-        </div>
-        <div  class="menu_row"></div>
-        <div class="notice_row">
-            NOTICE:- All Student of CSIT Must be fill the Proctoring 
-        </div>
-    </div>    
-    <div class="main">
-        <div class="welcom_text_row">
-            <h1>Welcome To CSIT Department</h1>
-            <pr>Lets interact with Members of Department</pr>
-        </div>
-        <div class="member_row">
-            <div id="mem_c1"></div>
-            <div id="mem_c2" ></div>
-        </div> 
-    </div> -->
-<!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, quibusdam veniam commodi nihil cum at eum
-        repellat, assumenda facere unde qui obcaecati modi consequatur sunt
-        repudiandae doloribus accusamus inventore nesciunt.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, quibusdam veniam commodi nihil cum at eum
-        repellat, assumenda facere unde qui obcaecati modi consequatur sunt
-        repudiandae doloribus accusamus inventore nesciunt.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, quibusdam veniam commodi nihil cum at eum
-        repellat, assumenda facere unde qui obcaecati modi consequatur sunt
-        repudiandae doloribus accusamus inventore nesciunt.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, quibusdam veniam commodi nihil cum at eum
-        repellat, assumenda facere unde qui obcaecati modi consequatur sunt
-        repudiandae doloribus accusamus inventore nesciunt.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, quibusdam veniam commodi nihil cum at eum
-        repellat, assumenda facere unde qui obcaecati modi consequatur sunt
-        repudiandae doloribus accusamus inventore nesciunt.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, quibusdam veniam commodi nihil cum at eum
-        repellat, assumenda facere unde qui obcaecati modi consequatur sunt
-        repudiandae doloribus accusamus inventore nesciunt.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, quibusdam veniam commodi nihil cum at eum
-        repellat, assumenda facere unde qui obcaecati modi consequatur sunt
-        repudiandae doloribus accusamus inventore nesciunt.</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, quibusdam veniam commodi nihil cum at eum
-            repellat, assumenda facere unde qui obcaecati modi consequatur sunt
-            repudiandae doloribus accusamus inventore nesciunt.</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, quibusdam veniam commodi nihil cum at eum
-            repellat, assumenda facere unde qui obcaecati modi consequatur sunt
-            repudiandae doloribus accusamus inventore nesciunt.</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, quibusdam veniam commodi nihil cum at eum
-            repellat, assumenda facere unde qui obcaecati modi consequatur sunt
-            repudiandae doloribus accusamus inventore nesciunt.</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, quibusdam veniam commodi nihil cum at eum
-            repellat, assumenda facere unde qui obcaecati modi consequatur sunt
-            repudiandae doloribus accusamus inventore nesciunt.</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, quibusdam veniam commodi nihil cum at eum
-            repellat, assumenda facere unde qui obcaecati modi consequatur sunt
-            repudiandae doloribus accusamus inventore nesciunt.</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, quibusdam veniam commodi nihil cum at eum
-            repellat, assumenda facere unde qui obcaecati modi consequatur sunt
-            repudiandae doloribus accusamus inventore nesciunt.</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, quibusdam veniam commodi nihil cum at eum
-            repellat, assumenda facere unde qui obcaecati modi consequatur sunt
-            repudiandae doloribus accusamus inventore nesciunt.</p>
-
-
-
-</body> -->
-
-<!-- </html> -->
