@@ -1,0 +1,79 @@
+.navbar{
+    
+    display: flex;
+    position: sticky;
+    top: 0px;
+}
+
+.background{
+    background: rgba(0, 0, 0, 0.839) url('imagesgita.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-blend-mode: darken;
+    color: white;
+}
+
+.btnsign{
+    
+    border: 2px rgb(199, 38, 194) solid ;
+    background-color: purple ;
+    color: white;
+    border-radius: 10px;
+    background: none;
+}
+
+.btnlogin{
+   
+    border: 2px rgb(199, 38, 194) solid ;
+    background-color: purple ;
+    color: white;
+    border-radius: 10px;
+    background: none;
+}
+.btnlogout{
+    border: 2px rgb(199, 38, 194) solid ;
+    background-color: purple ;
+    color: white;
+    border-radius: 10px;
+    background: none;
+}
+
+.btnsign:hover{
+    box-shadow: 0px 0px 10px 2px rgb(207, 206, 206);
+    color: white;
+    cursor: pointer;
+}
+
+.btnlogin:hover{
+    box-shadow: 0px 0px 10px 2px rgb(207, 206, 206);
+    color: white;
+    cursor: pointer;
+}
+.btnlogout:hover{
+    box-shadow: 0px 0px 10px 2px rgb(207, 206, 206);
+    color: white;
+    cursor: pointer;
+}
+
+/* .togbtn{
+    color: white;
+} */
+
+.color{
+    border: 2px rgb(199, 38, 194) solid ;
+    background-color: rgb(243, 177, 243) ;
+
+}
+.nav-link{
+    padding: 0;
+    color: aliceblue;
+}
+.nav-link:hover{
+    color: aliceblue;
+}
+.dropdown-menu{
+    text-align: center;
+}
+.menu2[data-bs-popper] {
+    left: -95px;
+}

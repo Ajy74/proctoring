@@ -1,0 +1,22 @@
+.background{
+    background: rgba(0, 0, 0, 0.839) url('imagesgita.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-blend-mode: darken;
+    color: white;
+}
+.color{
+    border: yellow 2px solid;
+}
+.btnNext{
+    border: 2px rgb(199, 38, 194) solid ;
+    background-color: purple ;
+    color: white;
+    border-radius: 10px;
+    /* margin-left: 46%; */
+}
+.btnNext:hover{
+    color: white;
+    background: none;
+    border: 2px purple solid;
+}
