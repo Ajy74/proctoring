@@ -101,7 +101,8 @@ $admin=false;
   </nav>';
   }
   elseif($proctor){
-      echo '<h1>Welcome Proctor</h1>';
+      echo '<h1>Welcome Proctor</h1></br> <a href="/proctoring/logouthandler.php"> <button type="button" class="btn  btnlogout mx-2 ps-2 pe-2">Logout</button></a>';
+
   }
   else{
       echo '<nav class="navbar navbar-expand-lg navbar-dark background ">
@@ -169,7 +170,7 @@ $admin=false;
                           <li>
                               <hr class="dropdown-divider">
                           </li>
-                          <li><a class="dropdown-item" href="#">proctor</a></li>
+                          <li><a class="dropdown-item" href="proctor/pro_login.php">proctor</a></li>
                           <li>
                               <hr class="dropdown-divider">
                           </li>
