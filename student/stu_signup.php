@@ -85,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
         <div class="container my-4 ">
             <form action="/proctoring/student/stu_signup.php" method="post">
-                <legend align="center"><b>SIGNUP FORM</b></legend>
+                <legend align ="center"><b>SIGNUP FORM</b></legend>
                 <fieldset class="color ps-4 pe-4 pt-4 pb-4" >
                     <!-- <legend align="center"><b>SIGNUP FORM</b></legend> -->
                     <div class="row mb-3">
@@ -116,7 +116,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 placeholder="confirm password">
                         </div>
                     </div>
-                    <button type="submit" class="btn btnsign " >Sign in</button>
+                    <button type="submit" class="btn btnsign " >signup</button>
                 </fieldset>
             </form>
         </div>
