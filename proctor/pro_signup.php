@@ -116,7 +116,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 placeholder="confirm password" required>
                         </div>
                     </div>
-                    <button type="submit" class="btn btnsign" >signup</button>
+                    <button type="submit" class="btn btnsign" >sign up</button>
                 </fieldset>
             </form>
         </div>
