@@ -116,9 +116,18 @@
                                     <span>Application</span>
                                 </a>
                             </li>
-                            
+
+                         
                         </div>
                     </li>
+                    <hr class="dropdown-divider"/>
+                    <a href="#" class="nav-link px-3 active text-light">
+                        <span class="me-2 ">
+                            <img src="/proctoring/gitalog.png"  width="40" height="40"  class="rounded-circle border border-light" alt="">
+                        </span>
+                        <span>Username</span>
+                    </a>
+                    <hr class="dropdown-divider"/>
                 </ul>
             </nav>
         </div>

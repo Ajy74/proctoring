@@ -5,18 +5,19 @@ $admin=false;
   session_start();
 //for student
   if(!isset($_SESSION['Sloggedin']) || $_SESSION['Sloggedin']!=true){
-    // header("location:/proctoring/student/stu_login.php");
-    // exit;
+   
   }
   else{
       $student=true;
+     $name= $_SESSION['username'];
   }
 //for proctor
  if(!isset($_SESSION['ploggedin']) || $_SESSION['ploggedin']!=true){
-
+    
  }
  else{
     $proctor=true;
+    $name= $_SESSION['username'];
  }
 
 ?>
@@ -80,7 +81,7 @@ $admin=false;
     <div class="offcanvas offcanvas-start sidebar-nav bg-dark text-white" tabindex="-1" id="offcanvasExample"
     aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-body p-0">
-        <nav class="navbar-dark">
+        <nav class="navbar-dark pt-3 pt-lg-0">
             <ul class="navbar-nav">
                 <li>
                     <div>
@@ -146,6 +147,15 @@ $admin=false;
                         
                     </div>
                 </li>
+
+                <hr class="dropdown-divider"/>
+                    <a href="#" class="nav-link px-3 active text-light">
+                        <span class="me-2 ">
+                            <img src="https://source.unsplash.com/40x40/?nature,human"  width="40" height="40"  class="rounded-circle border border-light" alt="">
+                        </span>
+                        <span>' .$name. '</span>
+                    </a>
+                <hr class="dropdown-divider"/>
             </ul>
         </nav>
     </div>
@@ -265,7 +275,7 @@ $admin=false;
     <div class="offcanvas offcanvas-start sidebar-nav bg-dark text-white" tabindex="-1" id="offcanvasExample"
     aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-body p-0">
-        <nav class="navbar-dark">
+        <nav class="navbar-dark pt-3 pt-lg-0 ">
             <ul class="navbar-nav">
                 <li>
                     <div>
@@ -331,6 +341,15 @@ $admin=false;
                         
                     </div>
                 </li>
+
+                <hr class="dropdown-divider"/>
+                    <a href="#" class="nav-link px-3 active text-light">
+                        <span class="me-2 ">
+                            <img src="https://source.unsplash.com/40x40/?nature,human"  width="40" height="40"  class="rounded-circle border border-light" alt="">
+                        </span>
+                        <span>' .$name. '</span>
+                    </a>
+                <hr class="dropdown-divider"/>
             </ul>
         </nav>
     </div>
