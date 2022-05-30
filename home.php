@@ -10,6 +10,19 @@ $admin=false;
   else{
       $student=true;
      $name= $_SESSION['username'];
+
+     include 'student/dbconnect.php';
+
+     $sql= "SELECT * FROM `studentcred`";
+     $result=mysqli_query($con,$sql);
+    while($row= mysqli_fetch_assoc($result)){
+        
+        if($row['username']==$name){
+            $s_id = $row['sno'];
+        }
+           
+        
+    }
   }
 //for proctor
  if(!isset($_SESSION['ploggedin']) || $_SESSION['ploggedin']!=true){
@@ -114,7 +127,7 @@ $admin=false;
                         </li>
 
                         <li >
-                            <a href="#" class="nav-link px-3 active text-muted">
+                            <a href="/proctoring/student/stu_query.php?s_id='.$s_id.'" class="nav-link px-3 active text-muted">
                                 <span class="me-2 ">
                                     <i class="fa-solid fa-clipboard-question"></i>
                                 </span>
@@ -308,11 +321,11 @@ $admin=false;
                         </li>
 
                         <li >
-                            <a href="#" class="nav-link px-3 active text-muted">
+                            <a href="/proctoring/proctor/respond_query.php" class="nav-link px-3 active text-muted">
                                 <span class="me-2 ">
                                     <i class="fa-solid fa-clipboard-question"></i>
                                 </span>
-                                <span>Query</span>
+                                <span>Queries</span>
                             </a>
                         </li>
 
@@ -460,7 +473,8 @@ $admin=false;
       </div>
   </nav>
   
-  <img src="https://source.unsplash.com/1275x800/?nature,wander" alt="image">
+
+  <img src="/proctoring/css/mountain.jpeg" style="height:100vh; width:100vw;"  alt="image">
 
   <!-- footer -->
     <div class="container-fluid bg-dark text-light ">
