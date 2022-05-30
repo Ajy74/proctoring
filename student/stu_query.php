@@ -81,6 +81,7 @@
                     
                 
                     $sql= "SELECT * FROM `query` WHERE s_id=$id";
+                    
                     $result=mysqli_query($con,$sql);
 
                     $noResult=true;
@@ -91,27 +92,62 @@
                         $desc = $row['query_desc'];
                         $time = $row['timestamp'];
 
-
-                    echo '<div class="card text-dark  mb-2">
+                        $rsql= "SELECT * FROM `queryresponse` WHERE query_id=$qid";
+                        $rresult=mysqli_query($con,$rsql);
+                        $responsResult=false;
+                        while($rowr= mysqli_fetch_assoc($rresult)){
                             
-                    <div class="card-body pb-0">
-                        <div class="flex-shrink-0 mb-0">
-                            <i class="fa-solid fa-circle-user"></i> <b>You</b >
-                        </div>
-                            <p class="card-text my-0"> <h6 class="my-0 mx-4 mb-0"><a  href="/proctoring/proctor/respond_query.php?queryid='. $qid .'" class="text-dark text-decoration-none ">'.$desc.'</a> </h6></p>
-                        <div class="card-body d-md-flex  justify-content-md-end text-muted p-0">
-                                <p  class="btn btn-light  my-0 mb-0 ">'.$time.'</p>
-                        </div>
-                    </div>
-                </div>';
+                            $responsResult=true;
+                            $response_desc=$rowr['responce_desc'];
+                            $response_by=$rowr['response_by'];
+                            $response_time=$rowr['timestamp'];
+                            
+                        }
 
+                        if($responsResult){
+                            echo '<div class="card text-dark  mb-2">
+                            
+                            <div class="card-body pb-0">
+                                <div class="flex-shrink-0 mb-0">
+                                    <i class="fa-solid fa-circle-user"></i> <b>You</b >
+                                </div>
+                                    <p class="card-text my-0"> <h6 class="my-0 mx-4 mb-0">'.$desc.'</h6></p>
+                                <div class="card-body d-md-flex  justify-content-md-end text-muted p-0">
+                                        <p  class="btn btn-light  my-0 mb-0 ">'.$time.'</p>
+                                </div>
+        
+                                <div class="flex-shrink-0 mb-0 my-2">
+                                    <i class="fa-solid fa-circle-user"></i> <b>'.$response_by.'</b >
+                                </div>
+                                    <p class="card-text my-0"> <h6 class="my-0 mx-4 mb-0">'.$response_desc.'</h6></p>
+                                <div class="card-body d-md-flex  justify-content-md-end text-muted p-0">
+                                        <p  class="btn btn-light  my-0 mb-1 ">'.$response_time.'</p>
+                                </div>
+                            </div>
+                        </div>';
+
+                        }
+                        else{
+                            echo '<div class="card text-dark  mb-2">
+                            
+                            <div class="card-body pb-0">
+                                <div class="flex-shrink-0 mb-0">
+                                    <i class="fa-solid fa-circle-user"></i> <b>You</b >
+                                </div>
+                                    <p class="card-text my-0"> <h6 class="my-0 mx-4 mb-0">'.$desc.'</h6></p>
+                                <div class="card-body d-md-flex  justify-content-md-end text-muted p-0">
+                                        <p  class="btn btn-light  my-0 mb-1 ">'.$time.'</p>
+                                </div>
+                                </div>
+                        </div>';
+                        }
 
                     }
 
                     if($noResult){
-                        echo '<div class="p-3 mb-4 bg-light rounded-3"">
-                        <div class="container text-dark">
-                            <p class="display-4">You did not asked any question</p>
+                        echo '<div class=" mb-4 bg-light rounded-3"">
+                        <div class="container p-2 pb-0 text-dark text-center">
+                            <p class="display-6 text-muted">No Doubts Found..!!</p>
                             <p class="lead"></p>
                         </div>
                     </div>';
