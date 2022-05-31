@@ -11,6 +11,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
    $email=$_POST["email"];
    $password=$_POST["password"];
    $cpassword=$_POST["cpassword"];
+   $fno=$_POST["fno"];
+   $nick=$_POST["nick"];
 
    //check for username exist or not //
 
@@ -22,8 +24,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
    }
    else{
        if($password==$cpassword){
-           $hash=password_hash($password,PASSWORD_DEFAULT);
-           $sql="INSERT INTO `studentcred` (`username`, `email`, `password`,`dt`) VALUES ('$username','$email', '$hash', current_timestamp())";
+            $hash=password_hash($password,PASSWORD_DEFAULT);
+           $sql="INSERT INTO `studentcred` (`username`, `email`, `password`,`fav_no`,`nickname`,`dt`) VALUES ('$username','$email', '$hash','$fno','$nick', current_timestamp())";
            $result=mysqli_query($con,$sql);
            if($result){
                $alertsucc=true;
@@ -116,7 +118,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 placeholder="confirm password" required>
                         </div>
                     </div>
-                    <button type="submit" class="btn btnsign" >sign up</button>
+                    <div class="row mb-3">
+                        <label for="fno" class="col-sm-2 col-form-label"> YOUR FAVOURATE-NUMBER</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" name="fno" id="fno"
+                                placeholder="Favourite-Number" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="nick" class="col-sm-2 col-form-label"> YOUR NICKNAME</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="nick" id="nick"
+                                placeholder="Nickname" required>
+                        </div>
+                    </div>
+                    <div class="d-grid  justify-content-md-end">
+                        <button type="submit" class="btn btnsign" >sign up</button>
+                    <div>
+                    
                 </fieldset>
             </form>
         </div>
