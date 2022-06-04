@@ -102,38 +102,43 @@
             <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
         </div>
 
-        <div class="container my-4  col-lg-6">
+        <div class="container my-4 mx-auto">
             <form action="/proctoring/student/stu_login.php" method="post">
-                <legend align="center"><b>LOGIN FORM</b></legend>
-                <fieldset class="color ps-4 pe-4 pt-4 pb-4">
-                    <!-- <legend align="center"><b>SIGNUP FORM</b></legend> -->
-                    <div class="row mb-3 ">
-                        <label for="username" class="col-sm-2 col-form-label">USERNAME</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="username" id="username"
-                                placeholder="username">
-                        </div>
-                    </div>
 
-                    <div class="row mb-3 ">
-                        <label for="password" class="col-sm-2 col-form-label">PASSWORD</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" name="password" id="password"
-                                placeholder="password">
-                        </div>
-                    </div>
+            <div class=" card text-dark"  style="display:block;">
+                <p class="my-5"></P>
+                <legend class="my-5 mb-1" align="center"><b>LOGIN FORM</b></legend>
+               
+                <div class="card-body  pb-0" style="border-radius: 20px; height:50vh;">
+                           <div class="d-flex my-4 mx-auto d " style="width:50%;">
+                               <label for="username" class=" mx-2 col-form-label"><img src="/proctoring/image/user.png" alt=""
+                                       style="height:20px ;"></label>
+                               <input type="text" class="form-control  mx-auto mb-0 i" name="username" id="username"
+                                   placeholder="username" style=" box-shadow: 2px 6px 18px rgba(66,57,238,0.3);" required>
+                           </div> 
 
-                    <div class="d-grid  justify-content-md-end">
-                        <button type="submit" class="btn btnlogin ">Login</button>
-                    </div>
+                           <div class="d-flex my-4 mx-auto d " style="width:50%;">
+                               <label for="password" class=" mx-2 col-form-label"><img src="/proctoring/image/password.png" alt=""
+                                       style="height:20px ;"></label>
+                               <input type="password" class="form-control  mx-auto mb-0 i" name="password" id="password"
+                                   placeholder="password" style=" box-shadow: 2px 6px 18px rgba(66,57,238,0.3);" required>
+                           </div> 
+                
+                
 
-                </fieldset>
-            
-                <div class=" text-center my-2">
-                    <a><button type="button" class="btn btnsign col-xs-6" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">Forgot-Password</button></a>
+                           <div class="  text-center mx-auto my-5 "> 
+                               <button type="submit" class="btn btnlogin text-light rounded-circle " style=" box-shadow: 2px 6px 16px rgba(66,57,238,0.3);width: 90px;height: 55px;" >Login</button>
+                            </div>
                 </div>
+                    <div  class=" text-center">
+                    <p class="forget" style="font-family: myriad pro;color:#bbc1cb;font-size: 14px;">Click here to <a  data-bs-toggle="modal" data-bs-target="#exampleModal" style=" color: #7d22e3;font-weight: 500;" >Change password </a> or <a  data-bs-toggle="modal" data-bs-target="#exampleModal" style=" color: #7d22e3;font-weight: 500;" > Forget-Password</a> </p>
+                  
+                    </div>
+            </div>
             </form>
+        </div>
+
+            
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -148,7 +153,7 @@
                             <div class="modal-body">
                                 <div class="card card-body text-dark my-2">
                                     <form
-                                        action="/proctoring/student/forgot_pass.php"
+                                        action="/proctoring/proctor/forgot_pass.php"
                                         method="get">
                                         <div class="form-floating mb-2 text-center pb-0">
 

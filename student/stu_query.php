@@ -41,26 +41,26 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/proctoring/css/signup.css" />
+    <link rel="stylesheet" type="text/css" href="/proctoring/css/query.css" />
     <link rel="stylesheet" type="text/css" href="/proctoring/fontawesome/css/all.css">
     <!-- <link rel="stylesheet" type="text/css" href="css_page/login.css" /> -->
     <title>PROCTORING-FORM</title>
 </head>
 
-<body class="background">
+<body class="background" style=" font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
 
     <div class="container-fluid">
         <div class="container my-4 ">
 
             <div class="container my-4 text-dark p-0">
-                <div class="p-2 mb-4 bg-light rounded-3 pb-0 ">
+                <div class="p-2 mb-4 bg-light  pb-0 " style="border-radius:30px;">
                     <div class="container-fluid py-5 pb-3">
-                        <h1 class="display-6 text-center text-primary">Ask Your Doubt</h1>
+                        <h1 class=" text-center text-primary"><b>Ask Your Doubt</b></h1>
 
                         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
                             <div class="form-floating mb-2 text-center">
                                 <textarea class="form-control" placeholder="Leave a comment here" id="desc"
-                                    style="height: 100px" name="desc" required></textarea>
+                                    style="height: 100px;border-radius:20px;" name="desc"  required></textarea>
                                 <label for="desc">Type your concern..</label>
                                 <button type="submit" class="btn btn-success my-3">Submit</button>
                             </div>
@@ -70,8 +70,8 @@
             </div>
         
             <div class=" text-info">
-                 <hr class="dropdown-divider "/>
-                 <h1><b>Your Doubts are here</b></h1>
+                 <hr class="dropdown-divider"/>
+                 <h1 ><b>Your Doubts are here</b></h1>
                  <hr class="dropdown-divider"/>
             </div>
 
@@ -115,7 +115,11 @@
                                 <div class="card-body d-md-flex  justify-content-md-end text-muted p-0">
                                         <p  class="btn btn-light  my-0 mb-0 ">'.$time.'</p>
                                 </div>
-        
+                            </div>
+                            <div class=" text-info mx-3 ">
+                                <hr class="dropdown-divider "/>
+                            </div>
+                            <div class="card-body pb-0 mx-5 " style="">
                                 <div class="flex-shrink-0 mb-0 my-2">
                                     <i class="fa-solid fa-circle-user"></i> <b>'.$response_by.'</b >
                                 </div>

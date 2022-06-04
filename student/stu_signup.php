@@ -50,15 +50,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/proctoring/css/signup.css" />
+    
     <!-- <link rel="stylesheet" type="text/css" href="css_page/login.css" /> -->
     <title>SIGN UP</title>
+    <link rel="stylesheet" type="text/css" href="/proctoring/css/signup.css" /> 
 </head>
 
 <body class="background">
 
     <div class="container-fluid">
-    <?php
+        <?php
      if($alertsucc){
       echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
       <strong>Success!</strong> Your account has been succesfully created..😃
@@ -85,70 +86,85 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div>";
     }
 ?>
-        <div class="container my-4 ">
+        <div class="container my-4" >
+
+            
+
             <form action="/proctoring/student/stu_signup.php" method="post">
-                <legend align="center"><b>SIGNUP FORM</b></legend>
-                <fieldset class="color ps-4 pe-4 pt-4 pb-4" >
-                    <!-- <legend align="center"><b>SIGNUP FORM</b></legend> -->
-                    <div class="row mb-3">
-                        <label for="username" class="col-sm-2 col-form-label">USERNAME</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="username" id="username"
-                                placeholder="username" required>
-                        </div>
+                <div class="card text-dark">
+               
+                <div class="card-body d-flex " style="border-radius: 20px;">
+                    <div class="col-6 ">
+                            <legend class="my-4 mb-1" align="center"><b>SIGNUP FORM</b></legend>
+                           
+                            <div class="d-flex my-4 mx-auto d">
+                                <label for="username" class=" mx-2 col-form-label"><img src="/proctoring/image/user.png" alt=""
+                                        style="height:20px ;"></label>
+                                <input type="text" class="form-control  mx-auto mb-0 i" name="username" id="username"
+                                    placeholder="username" style=" box-shadow: 2px 6px 18px rgba(66,57,238,0.3);" required>
+                            </div> 
+
+                            <div class="d-flex my-4 mx-auto  d">
+                                <label for="email" class=" mx-2 col-form-label"><img src="/proctoring/image/email.svg" height="20px" alt=""
+                                        style="height:20px ;"></label>
+                                <input type="email" class="form-control  mx-auto mb-0 i" name="email" id="email"
+                                placeholder="college E-mail id" style=" box-shadow: 2px 6px 18px rgba(66,57,238,0.3);" required>
+                            </div> 
+
+                            <div class="d-flex my-4 mx-auto d">
+                                <label for="password" class=" mx-2 col-form-label"><img src="/proctoring/image/password.png" alt=""
+                                        style="height:20px ;"></label>
+                                <input type="password" class="form-control  mx-auto mb-0 i" name="password" id="password"
+                                placeholder="password" style=" box-shadow: 2px 6px 18px rgba(66,57,238,0.3);" required>
+                            </div> 
+
+                            <div class="d-flex my-4 mx-auto d">
+                                <label for="cpassword" class=" mx-2 col-form-label"><img src="/proctoring/image/password.png" alt=""
+                                        style="height:20px ;"></label>
+                                <input type="password" class="form-control  mx-auto mb-0 i" name="cpassword" id="cpassword"
+                                placeholder="confirm password" style=" box-shadow: 2px 6px 18px rgba(66,57,238,0.3);"  required>
+                            </div> 
+
+                            <div class="d-flex my-4 mx-auto d">
+                                <label for="fno" class=" mx-2 col-form-label"><img src="/proctoring/image/number.svg" alt=""
+                                        style="height:20px ;"></label>
+                                <input type="number" class="form-control  mx-auto mb-0 i" name="fno" id="fno"
+                                placeholder="Favourite-Number" style=" box-shadow: 2px 6px 18px rgba(66,57,238,0.3);" required>
+                            </div> 
+
+                            <div class="d-flex my-4 mx-auto d">
+                                <label for="nick" class=" mx-2 col-form-label"><img src="/proctoring/image/heart-solid.svg" alt=""
+                                        style="height:20px ;"></label>
+                                <input type="text" class="form-control  mx-auto mb-0 i" name="nick" id="nick"
+                                placeholder="Nickname" style=" box-shadow: 2px 6px 18px rgba(66,57,238,0.3);" required>
+                            </div> 
+                            <div class=" col-6  text-center mx-auto  "> <button type="submit" class="btn btnsign text-light rounded-circle " style=" box-shadow: 2px 6px 16px rgba(66,57,238,0.3);width: 90px;height: 55px;" >sign up</button></div>
+                          
                     </div>
-                    <div class="row mb-3">
-                        <label for="email" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control" name="email" id="email"
-                                placeholder="college E-mail id" required>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="password" class="col-sm-2 col-form-label">PASSWORD</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" name="password" id="password"
-                                placeholder="password" required>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="cpassword" class="col-sm-2 col-form-label">CONFIRM-PASSWORD</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" name="cpassword" id="cpassword"
-                                placeholder="confirm password" required>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="fno" class="col-sm-2 col-form-label"> YOUR FAVOURATE-NUMBER</label>
-                        <div class="col-sm-10">
-                            <input type="number" class="form-control" name="fno" id="fno"
-                                placeholder="Favourite-Number" required>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="nick" class="col-sm-2 col-form-label"> YOUR NICKNAME</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="nick" id="nick"
-                                placeholder="Nickname" required>
-                        </div>
-                    </div>
-                    <div class="d-grid  justify-content-md-end">
+                    <!-- <div class=" col-6  text-center my-auto bg-info "> <button type="submit" class="btn btnsign text-light rounded-circle " style=" box-shadow: 2px 6px 16px rgba(66,57,238,0.3);" >sign up</button></div> -->
+                </div>
+                
+                
+            </div>
+
+                    <!-- <div class="d-grid  justify-content-md-end">
                         <button type="submit" class="btn btnsign" >sign up</button>
                     <div>
                     
-                </fieldset>
+                 -->
+
             </form>
         </div>
     </div>
 
-    
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

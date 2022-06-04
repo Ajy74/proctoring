@@ -4,30 +4,95 @@ body,
 button {
   font-family: "Inter", sans-serif;
 }
+
 .background{
-    background: rgba(0, 0, 0, 0) url('mountain.jpeg');
+    background-color: #eef1f8;
     background-size: cover;
     background-attachment: fixed;
     background-blend-mode: darken;
     color: white;
 }
-.color{
-    border: yellow 2px solid;
+.card{
+    border-radius: 20px;
+    background-image: url("/proctoring/image/bg.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90vh;
+    box-shadow: 2px 6px 18px rgba(66,57,238,0.2);
+    display: block;
 }
-.btnsign,.btnlogin{
+.d{
+     border-radius:20px; 
+     height: 40px;
+     width:80%;
+     outline:none;
+     border:none;
+     box-shadow: 2px 6px 18px rgba(66,57,238,0.3);
+}
+
+.i{
+    outline:none;
+    border:none;
+    border-radius:20px;
+    height: 40px;
+    width:100%;
+    box-shadow: 2px 6px 18px rgba(66,57,238,0.3);
+}
+
+div input:active{
+    outline: none;
+    border: none;
+    background-color: aqua;
+    transform: scale3d(1.1);
+}
+
+button{
+    width: 90px;
+    height: 55px;
+    outline: none;
+    border: none;
+    border-radius: 100px;
+    background: linear-gradient(-30deg,#3b02ed,#8e2ae0 55%);
+    box-shadow: 2px 6px 16px rgba(66,57,238,0.3); 
+    color: #FFFFFF;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
+button:active{
+    transform: scale(1.1);
+}
+
+.forget{
+    font-family: myriad pro;
+    color:#bbc1cb;
+    font-size: 14px;
+}
+
+.forget a{
+    color: #7d22e3;
+    font-weight: 500;
+}
+
+
+/* .color{
+    border: yellow 2px solid;
+} */
+/* .btnsign,.btnlogin{
     border: 2px rgb(199, 38, 194) solid ;
     background-color: purple ;
     color: white;
     border-radius: 10px;
     background: none;
     /* margin-left: 46%; */
-}
-.btnlogin:hover{
+/* }  */
+/* .btnlogin:hover{
     color: white;
-}
-.btnsign:hover{
+} */
+/* .btnsign:hover{
     color: white;
-}
+} */
 /* form.btnsign{
     align-items: center;
 } */

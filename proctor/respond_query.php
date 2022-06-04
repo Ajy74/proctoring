@@ -9,13 +9,13 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/proctoring/css/signup.css" />
+    <link rel="stylesheet" type="text/css" href="/proctoring/css/query.css" />
     <link rel="stylesheet" type="text/css" href="/proctoring/fontawesome/css/all.css">
     <!-- <link rel="stylesheet" type="text/css" href="css_page/login.css" /> -->
     <title>PROCTORING-FORM</title>
 </head>
 
-<body class="background">
+<body class="background"  style=" font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
     <div class="container-fluid">
         <div class="container my-4 ">
                 <?php 
@@ -109,7 +109,7 @@
                                     <div class="container my-4 ">
 
                                         <div class="card '. $color .' text-dark">
-                                            <div class="flex-shrink-0 mb-0 my-2 mx-2">
+                                            <div class="flex-shrink-0 mb-0 my-2 mx-3">
                                                 <i class="fa-solid fa-circle-user"></i> <b>'.$user_n. '</b > at  ' .$query_time.'
                                             </div>
                                             <div class="card-body ">

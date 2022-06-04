@@ -11,6 +11,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
    $email=$_POST["email"];
    $password=$_POST["password"];
    $cpassword=$_POST["cpassword"];
+   $fno=$_POST["fno"];
+   $nick=$_POST["nick"];
 
    //check for username exist or not //
 
@@ -23,7 +25,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
    else{
        if($password==$cpassword){
            $hash=password_hash($password,PASSWORD_DEFAULT);
-           $sql="INSERT INTO `proctorcred` (`username`, `email`, `password`,`dt`) VALUES ('$username','$email', '$hash', current_timestamp())";
+           $sql="INSERT INTO `proctorcred` (`username`, `email`, `password`,`fav_no`,`nickname`,`dt`) VALUES ('$username','$email', '$hash','$fno','$nick', current_timestamp())";
            $result=mysqli_query($con,$sql);
            if($result){
                $alertsucc=true;
@@ -85,40 +87,69 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
         <div class="container my-4 ">
             <form action="/proctoring/proctor/pro_signup.php" method="post">
-                <legend align="center"><b>SIGNUP FORM</b></legend>
-                <fieldset class="color ps-4 pe-4 pt-4 pb-4" >
-                    <!-- <legend align="center"><b>SIGNUP FORM</b></legend> -->
-                    <div class="row mb-3">
-                        <label for="username" class="col-sm-2 col-form-label">USERNAME</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="username" id="username"
-                                placeholder="username" required>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="email" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control" name="email" id="email"
-                                placeholder="college E-mail id" required>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="password" class="col-sm-2 col-form-label">PASSWORD</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" name="password" id="password"
-                                placeholder="password" required>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="cpassword" class="col-sm-2 col-form-label">CONFIRM-PASSWORD</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" name="cpassword" id="cpassword"
-                                placeholder="confirm password" required>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btnsign" >sign up</button>
-                </fieldset>
-            </form>
+            <div class="card text-dark">
+               
+               <div class="card-body d-flex " style="border-radius: 20px;">
+                   <div class="col-6 ">
+                           <legend class="my-4 mb-1" align="center"><b>SIGNUP FORM</b></legend>
+                          
+                           <div class="d-flex my-4 mx-auto d">
+                               <label for="username" class=" mx-2 col-form-label"><img src="/proctoring/image/user.png" alt=""
+                                       style="height:20px ;"></label>
+                               <input type="text" class="form-control  mx-auto mb-0 i" name="username" id="username"
+                                   placeholder="username" style=" box-shadow: 2px 6px 18px rgba(66,57,238,0.3);" required>
+                           </div> 
+
+                           <div class="d-flex my-4 mx-auto  d">
+                               <label for="email" class=" mx-2 col-form-label"><img src="/proctoring/image/email.svg" height="20px" alt=""
+                                       style="height:20px ;"></label>
+                               <input type="email" class="form-control  mx-auto mb-0 i" name="email" id="email"
+                               placeholder="college E-mail id" style=" box-shadow: 2px 6px 18px rgba(66,57,238,0.3);" required>
+                           </div> 
+
+                           <div class="d-flex my-4 mx-auto d">
+                               <label for="password" class=" mx-2 col-form-label"><img src="/proctoring/image/password.png" alt=""
+                                       style="height:20px ;"></label>
+                               <input type="password" class="form-control  mx-auto mb-0 i" name="password" id="password"
+                               placeholder="password" style=" box-shadow: 2px 6px 18px rgba(66,57,238,0.3);" required>
+                           </div> 
+
+                           <div class="d-flex my-4 mx-auto d">
+                               <label for="cpassword" class=" mx-2 col-form-label"><img src="/proctoring/image/password.png" alt=""
+                                       style="height:20px ;"></label>
+                               <input type="password" class="form-control  mx-auto mb-0 i" name="cpassword" id="cpassword"
+                               placeholder="confirm password" style=" box-shadow: 2px 6px 18px rgba(66,57,238,0.3);"  required>
+                           </div> 
+
+                           <div class="d-flex my-4 mx-auto d">
+                               <label for="fno" class=" mx-2 col-form-label"><img src="/proctoring/image/number.svg" alt=""
+                                       style="height:20px ;"></label>
+                               <input type="number" class="form-control  mx-auto mb-0 i" name="fno" id="fno"
+                               placeholder="Favourite-Number" style=" box-shadow: 2px 6px 18px rgba(66,57,238,0.3);" required>
+                           </div> 
+
+                           <div class="d-flex my-4 mx-auto d">
+                               <label for="nick" class=" mx-2 col-form-label"><img src="/proctoring/image/heart-solid.svg" alt=""
+                                       style="height:20px ;"></label>
+                               <input type="text" class="form-control  mx-auto mb-0 i" name="nick" id="nick"
+                               placeholder="Nickname" style=" box-shadow: 2px 6px 18px rgba(66,57,238,0.3);" required>
+                           </div> 
+                           <div class=" col-6  text-center mx-auto  "> <button type="submit" class="btn btnsign text-light rounded-circle " style=" box-shadow: 2px 6px 16px rgba(66,57,238,0.3);width: 90px;height: 55px;" >sign up</button></div>
+                         
+                   </div>
+                   <!-- <div class=" col-6  text-center my-auto bg-info "> <button type="submit" class="btn btnsign text-light rounded-circle " style=" box-shadow: 2px 6px 16px rgba(66,57,238,0.3);" >sign up</button></div> -->
+               </div>
+               
+               
+           </div>
+
+                   <!-- <div class="d-grid  justify-content-md-end">
+                       <button type="submit" class="btn btnsign" >sign up</button>
+                   <div>
+                   
+                -->
+
+           </form>
         </div>
     </div>
 

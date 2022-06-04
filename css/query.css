@@ -1,0 +1,15 @@
+
+
+.background{
+    background-color: #eef1f8;
+    background-size: cover;
+    background-attachment: fixed;
+    background-blend-mode: darken;
+    color: white;
+}
+
+.card{
+    border-radius: 30px;
+    box-shadow: 2px 6px 18px rgba(66,57,238,0.2);
+    display: block;
+}
