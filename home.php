@@ -118,7 +118,7 @@ $admin=false;
                         </li>
 
                          <li >
-                            <a href="/proctoring/student/proctoring_form.php" class="nav-link px-3 active text-muted">
+                            <a href="/proctoring/student/stu_profile1.php" class="nav-link px-3 active text-muted">
                                 <span class="me-2 ">
                                     <i class="fa-solid fa-circle-user"></i>
                                 </span>
