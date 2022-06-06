@@ -4,6 +4,76 @@
 session_start();
 $username=$_SESSION['username'];
 
+  include 'dbconnect.php';
+
+ 
+    if($_SERVER["REQUEST_METHOD"]=="POST"){
+
+      $img=$_FILES['img'];
+      $name=$_POST['studentname'];
+      $dob=$_POST['dob'];
+      $branch=$_POST['branch'];
+      $branch=$_POST['branch'];
+      $grp=$_POST['grp'];
+      $sem=$_POST['sem'];
+      $roll=$_POST['roll'];
+      $registration=$_POST['registration'];
+      $hostel=$_POST['hostel'];
+      $day=$_POST['day'];
+      $blood=$_POST['blood'];
+      $father=$_POST['father'];
+      $mother=$_POST['mother'];
+      $parentphone=$_POST['parentphone'];
+      $studphone=$_POST['studphone'];
+      $emrphone=$_POST['emrphone'];
+
+
+
+      
+      if($img['size']){
+
+        $filename=$img['name'];
+        $fileerror=$img['error'];
+        $filetmp=$img['tmp_name'];
+
+        $fileext= explode('.',$filename);
+        $filecheck= strtolower(end($fileext));
+
+        $extstored=array('png','jpg','jpeg');
+
+        if(in_array($filecheck,$extstored)){
+
+            $destfile='/proctoring/image/studentimg/'.$filename;
+            move_uploaded_file($filetmp,$destfile);
+
+            $image=1;
+            
+            // $sql1="INSERT INTO `images` (`notice`, `is_notice`, `send_by`, `dt`) 
+            // VALUES ('$filename', '1','$name', current_timestamp());";
+
+            // $result1=mysqli_query($con,$sql1);
+
+          
+        }
+      
+
+        if($image){
+
+          $sql=" ";
+
+          header("location:/proctoring/student/stu_profile2.php?upload=true");
+
+        }
+        else{
+          header("location:/proctoring/student/stu_profile1.php?upload=false");
+        }
+
+    }
+    }
+  
+  
+  
+
 
 ?>
 
@@ -30,7 +100,6 @@ $username=$_SESSION['username'];
 
     <div class="container-fluid">
      
-
         <div class="container my-5 ">
           <div class=" card text-dark"  style="display:block;">
             <legend align="center"><b>PERSONAL DETAILS</b></legend>
@@ -71,12 +140,12 @@ $username=$_SESSION['username'];
                         <input type="number" maxlength="15"   class="form-control" id="registration" name="registration" required>
                     </div>
                     <div class="col-md-2">
-                      <label for="registration" class="form-label"><b>Hosteler(Y/N)</b></label>
+                      <label for="hostel" class="form-label"><b>Hosteler(Y/N)</b></label>
                       <input type="text" maxlength="1"   class="form-control" id="hostel" name="hostel" >
                     </div>
                     <div class="col-md-2">
-                      <label for="registration" class="form-label"><b>Day-Scholar(Y/N)</b></label>
-                      <input type="text" maxlength="1"   class="form-control" id="hostel" name="hostel" >
+                      <label for="day" class="form-label"><b>Day-Scholar(Y/N)</b></label>
+                      <input type="text" maxlength="1"   class="form-control" id="day" name="day" >
                     </div>
                     <div class="col-md-4">
                       <label for="blood" class="form-label"><b>Blood Group</b></label>

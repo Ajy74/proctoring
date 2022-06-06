@@ -1,3 +1,19 @@
+
+<?php 
+  include 'dbconnect.php';
+
+
+    if($_SERVER["REQUEST_METHOD"]=="POST"){
+     
+      $sql=" ";
+      
+
+    }
+  
+  
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -20,13 +36,12 @@
 <body class="background text-dark">
 
     <div class="container-fluid">
-     
 
         <div class="container my-5 ">
           <div class=" card text-dark"  style="display:block;">
             <legend align="center"><b>OTHER DETAILS</b></legend>
             <fieldset class="ps-4 pe-4 pt-4 pb-4">
-                <form class="row g-3">
+                <form class="row g-3" action="/proctoring/student/stu_profile2.php" method="post">
                     <div class="col-md-4">
                       <label for="state" class="form-label"><b>State</b></label>
                       <input type="text" class="form-control" id="state" name="state">
