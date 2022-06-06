@@ -2,13 +2,29 @@
 <?php 
   include 'dbconnect.php';
 
+  $roll=$_GET['roll'];
+  
 
     if($_SERVER["REQUEST_METHOD"]=="POST"){
-     
-      $sql=" ";
-      
 
-    }
+      $state=$_POST['state'];
+      $hoby=$_POST['hoby'];
+      $tenth=$_POST['tenth'];
+      $twlth=$_POST['twlth'];
+     
+      $sql=" UPDATE `student_detail` SET `state` = '$state', `hobby` = '$hoby', `10th` = '$tenth', `12` = '$twlth' WHERE `student_detail`.`roll` = '$roll'";
+
+      $result=mysqli_query($con,$sql);
+     
+  
+        if($result){
+              
+          echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+              <strong>Success!</strong> You profile has been created..😃Click for<i class='fa-solid fa-arrow-right'></i><a href='/proctoring/home.php' <button type='button' class='btn'  style='border: 2px rgb(199, 38, 194) solid ;background-color: purple ;color: white; box-shadow: 2px 6px 18px rgba(66,57,238,0.2);'> DASHBOARD </button></a>
+              <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+          </div>";
+            }   
+     }
   
   
 ?>
@@ -37,11 +53,13 @@
 
     <div class="container-fluid">
 
+    
+
         <div class="container my-5 ">
           <div class=" card text-dark"  style="display:block;">
             <legend align="center"><b>OTHER DETAILS</b></legend>
             <fieldset class="ps-4 pe-4 pt-4 pb-4">
-                <form class="row g-3" action="/proctoring/student/stu_profile2.php" method="post">
+                <form class="row g-3" action="/proctoring/student/stu_profile2.php?roll=<?php echo $roll?>" method="post">
                     <div class="col-md-4">
                       <label for="state" class="form-label"><b>State</b></label>
                       <input type="text" class="form-control" id="state" name="state">

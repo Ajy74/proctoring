@@ -153,11 +153,11 @@ $username=$_SESSION['username'];
         }
     }
 
-    function noticelist(){
+    // function noticelist(){
 
-        var p = document.getElementById("")
+    //     var p = document.getElementById("")
 
-    }
+    // }
 
     </script>
 </body>
