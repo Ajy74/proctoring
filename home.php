@@ -19,10 +19,31 @@ $admin=false;
         
         if($row['username']==$name){
             $s_id = $row['sno'];
-        }
-           
-        
+        } 
     }
+
+    $sql="SELECT * FROM `student_detail` where `student_detail`.`userno`='$s_id'";
+    $result=mysqli_query($con,$sql);
+    $num=mysqli_num_rows($result);
+    
+    if($num){        
+            //for profile is created 
+
+        while($row=mysqli_fetch_assoc($result)){
+            $imagepath='student/'.$row['img'];
+            
+            $profilePagePath='/proctoring/student/stu_MainProfile.php';
+           
+        }
+    }
+    else{
+            //for profile not created
+
+        $imagepath='/proctoring/image/user.png';
+       
+        $profilePagePath='/proctoring/student/stu_profile1.php';
+    }
+
   }
 //for proctor
  if(!isset($_SESSION['ploggedin']) || $_SESSION['ploggedin']!=true){
@@ -58,8 +79,10 @@ $admin=false;
     </title>
 </head>
 
-<body >
+<body onload="myFunction()" >
 <?php 
+
+ 
 
   if($student){
 
@@ -118,7 +141,7 @@ $admin=false;
                         </li>
 
                          <li >
-                            <a href="/proctoring/student/stu_profile1.php" class="nav-link px-3 active text-muted">
+                            <a href="'.$profilePagePath.'?userno='.$s_id.'" class="nav-link px-3 active text-muted">
                                 <span class="me-2 ">
                                     <i class="fa-solid fa-circle-user"></i>
                                 </span>
@@ -164,7 +187,7 @@ $admin=false;
                 <hr class="dropdown-divider"/>
                     <a href="#" class="nav-link px-3 active text-light">
                         <span class="me-2 ">
-                            <img src="https://source.unsplash.com/40x40/?nature,human"  width="40" height="40"  class="rounded-circle border border-light" alt="">
+                            <img src=' .$imagepath. '   width="40" height="40"  class="rounded-circle border border-light" alt="";">
                         </span>
                         <span>' .$name. '</span>
                     </a>
@@ -198,64 +221,6 @@ $admin=false;
 ';
 
 
-
-
-
-//       echo '  <nav class="navbar navbar-expand-lg navbar-dark background ">
-//       <div class="container-fluid">
-//           <a class="navbar-brand" href="#"><img src="/proctoring/gitalog.png" height="50px" width="200px" alt="logo"></a>
-//           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-//               data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-//               aria-label="Toggle navigation">
-//               <span class="navbar-toggler-icon togbtn"></span>
-//           </button>
-//           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-//               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-//                   <li class="nav-item">
-//                       <a class="nav-link active" aria-current="page" href="/proctoring/student/proctoring_form.php">PROCTORING-FORM</a>
-//                   </li>
-//                   <li class="nav-item">
-//                       <a class="nav-link active" aria-current="page" href="/proctoring/student/stu_createProfile.php">PROFILE</a>
-//                   </li>
-//                   <li class="nav-item">
-//                       <a class="nav-link active" aria-current="page" href="/proctoring/student/stu_query.php">QUERY</a>
-//                   </li>
-//                   <li class="nav-item">
-//                       <a class="nav-link active" aria-current="page" href="/proctoring/student/view_notice.php">NOTICE</a>
-//                   </li>
-//                   <li class="nav-item">
-//                       <a class="nav-link active" aria-current="page" href="/proctoring/student/view_report.php">REPORT</a>
-//                   </li>
-//                   <li class="nav-item">
-//                       <a class="nav-link active" aria-current="page" href="/proctoring/student/leave.php">APPLY LEAVE</a>
-//                   </li>
-
-//                   <!-- <li class="nav-item dropdown">
-//                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-//                     Dropdown
-//                   </a>
-//                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-//                     <li><a class="dropdown-item" href="#">Action</a></li>
-//                     <li><a class="dropdown-item" href="#">Another action</a></li>
-//                     <li><hr class="dropdown-divider"></li>
-//                     <li><a class="dropdown-item" href="#">Something else here</a></li>
-//                   </ul>
-//                 </li> -->
-//                   <!-- <li class="nav-item">
-//                   <a class="nav-link disabled">Disabled</a>
-//                 </li> -->
-//               </ul>
-//               <form class="d-flex">
-//                   <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
-//                   <!-- <button type="button" class="btn  btnsign mx-2">Sign Up</button> -->
-
-//                  <a href="/proctoring/logouthandler.php"> <button type="button" class="btn  btnlogout mx-2 ps-2 pe-2">Logout</button></a>
-
-                  
-//               </form>
-//           </div>
-//       </div>
-//   </nav>';
   }
   elseif($proctor){
     echo '  <!-- navabar -->
@@ -507,6 +472,43 @@ $admin=false;
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
+
+    <script>
+        function myFunction(){
+            // window.location.href = "http://localhost/proctoring/"
+            urlString = window.location.href;
+            var url = new URL(urlString);
+            var sprofile = url.searchParams.get("sprofile");
+            
+            // console.log(update)
+            if(sprofile == 'true'){
+                var x = document.getElementById("stu_profile");
+                if (x.style.backgroundImage === "") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }else{
+                if(fno == 'false'){
+                    var x = document.getElementById("fav");
+                    if (x.style.display === "none") {
+                        x.style.display = "block";
+                    } else {
+                        x.style.display = "none";
+                    }
+                }
+                if(nick == 'false'){
+                    var x = document.getElementById("nick");
+                    if (x.style.display === "none") {
+                        x.style.display = "block";
+                    } else {
+                        x.style.display = "none";
+                    }
+                }
+            }
+        }
+
+    </script>
 </body>
 
 </html>

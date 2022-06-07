@@ -5,6 +5,7 @@ $username=$_SESSION['username'];
 
   include 'dbconnect.php';
 
+  $userno=$_GET['userno'];
  
     if($_SERVER["REQUEST_METHOD"]=="POST"){
 
@@ -53,8 +54,8 @@ $username=$_SESSION['username'];
 
         if($image){
 
-          $sql=" INSERT INTO `student_detail` (`name`, `img`, `dob`, `branch`, `grp`, `sem`, `roll`, `registration`, `hostel`, `day`, `blood`, `father`, `mother`, `parentphone`, `studphone`, `emrphone`,`dt`) 
-          VALUES ('$name', '$destfile', '$dob', '$branch', '$grp', '$sem', '$roll', '$registration', '$hostel', '$day', '$blood', '$father', '$mother', '$parentphone', '$studphone', '$emrphone', current_timestamp())";
+          $sql=" INSERT INTO `student_detail` (`userno`,`name`, `img`, `dob`, `branch`, `grp`, `sem`, `roll`, `registration`, `hostel`, `day`, `blood`, `father`, `mother`, `parentphone`, `studphone`, `emrphone`,`dt`) 
+          VALUES ('$userno','$name', '$destfile', '$dob', '$branch', '$grp', '$sem', '$roll', '$registration', '$hostel', '$day', '$blood', '$father', '$mother', '$parentphone', '$studphone', '$emrphone', current_timestamp())";
 
           $result=mysqli_query($con,$sql);
 
@@ -62,7 +63,7 @@ $username=$_SESSION['username'];
 
         }
         else{
-          header("location:/proctoring/student/stu_profile1.php?upload=false");
+          header("location:/proctoring/student/stu_profile1.php?userno=$userno&upload=false");
         }
 
     }
@@ -101,7 +102,7 @@ $username=$_SESSION['username'];
             <div class=" card text-dark" style="display:block;">
                 <legend align="center"><b>PERSONAL DETAILS</b></legend>
                 <fieldset class="ps-4 pe-4 pt-4 pb-4">
-                    <form class="row g-3" action="/proctoring/student/stu_profile1.php?name=<?php echo $username?>"
+                    <form class="row g-3" action="/proctoring/student/stu_profile1.php?userno=<?php echo $userno ?>&name=<?php echo $username?>"
                         method="post" enctype="multipart/form-data">
                         <div class="col-md-4">
                             <label for="studentname" class="form-label"><b>Name</b></label>
@@ -130,7 +131,7 @@ $username=$_SESSION['username'];
                         </div>
                         <div class="col-md-4">
                             <label for="roll" class="form-label"><b>Roll Number</b></label>
-                            <input type="number" maxlength="10" class="form-control" id="roll" name="roll" required>
+                            <input type="text" maxlength="10" class="form-control" id="roll" name="roll" required>
                         </div>
                         <div class="col-md-4">
                             <label for="registration" class="form-label"><b>Registration Number</b></label>
