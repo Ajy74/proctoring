@@ -3,6 +3,60 @@
 session_start();
 $username=$_SESSION['username'];
 
+include 'dbconnect.php';
+
+$s_id=$_GET['userno'];
+
+$sql="SELECT * FROM `student_detail` where `student_detail`.`userno`='$s_id' ";
+$result=mysqli_query($con,$sql);
+
+if($result){
+    $row=mysqli_fetch_assoc($result);
+
+    $img=$row['img'];
+    $name=$row['name'];
+    $roll=$row['roll'];
+    $registration=$row['registration'];
+    $branch=$row['branch'];
+    $dob=$row['dob'];
+    $grp=$row['grp'];
+    $sem=$row['sem'];
+    $hostel=$row['hostel'];
+    $day=$row['day'];
+    $blood=$row['blood'];
+    $father=$row['father'];
+    $mother=$row['mother'];
+    $parentphone=$row['parentphone'];
+    $studphone=$row['studphone'];
+    $emrphone=$row['emrphone'];
+    $state=$row['state'];
+    $tenth=$row['10th'];
+    $twlth=$row['12'];
+    $hobby=$row['hobby'];
+    $dt=$row['dt'];
+
+    
+
+    if(strtolower($hostel)=='y' && strtolower($day)=='n'){
+        $hostel='YES';
+        $day='NO';
+    }
+    else{
+        $hostel='NO';
+        $day='YES';
+    }
+
+    if(strtolower($day)=='y' && strtolower($hostel)=='n'){
+        $day='YES';
+        $hostel='NO';
+    }
+    else{
+        $day='NO';
+        $hostel='YES';
+    }
+
+}
+
 
 ?>
 
@@ -24,11 +78,160 @@ $username=$_SESSION['username'];
     <title>Application</title>
 </head>
 
-<body class="background" onload="myFunction()">
+<body class="background text-dark">
 
-   <div class="container">
-       <p> main profile</p>
-   </div>
+    <div class="container-fluid ">
+        <div class="container  my-5 ">
+            <div class="card mx-auto col-lg-10 text-dark "
+                style=" font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                <h2 class="my-3 mx-2 text-center"><b><u>GITA AUTONOMOUS COLLEGE,BHUBANESHWAR</u></b></h2>
+
+                <div class="row g-3  " style="font-size: 20px;">
+                    <div class="col-6 my-5">
+                        <img  class=" col-10 col-sm-8 col-lg-4 mx-3 rounded border border-info" src="/proctoring/student/<?php echo $img ?>"  height="180px"/>
+                    </div>
+                    <div class="col-6">
+                        
+                    </div>
+
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">Name</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo $name?></p>
+                    </div>
+                    
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">Roll</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo $roll?></p>
+                    </div>
+                   
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">Registration</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo $registration?></p>
+                    </div>
+
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">Branch</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo $branch?></p>
+                    </div>
+
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">Date Of BIrth</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo $dob?></p>
+                    </div>
+
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">Group</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo $grp?></p>
+                    </div>
+
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">Semester</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo $sem?></p>
+                    </div>
+
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">Hosteler</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo $hostel?></p>
+                    </div>
+
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">Day-Scholar</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo $day?></p>
+                    </div>
+
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">Blood group</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo strtoupper($blood)?></p>
+                    </div>
+
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">Father's name</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo $father?></p>
+                    </div>
+
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">Mother's name</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo $mother?></p>
+                    </div>
+
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">Parent phn.</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo $parentphone?></p>
+                    </div>
+
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">Student phn.</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo $studphone?></p>
+                    </div>
+
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">Emergency phn.</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo $emrphone?></p>
+                    </div>
+
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">State</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo ucfirst($state)?></p>
+                    </div>
+
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">10th Percentage/CGPA</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo $tenth?></p>
+                    </div>
+
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">12th Percentage/CGPA</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo $twlth?></p>
+                    </div>
+
+                    <div class="col-6 ">
+                       <p class=" col-10 col-sm-8 col-lg-6 mx-3">Hobby</p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" col-10 col-sm-8 col-lg-6 mx-3"><?php echo $hobby?></p>
+                    </div>
+                   
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
 

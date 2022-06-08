@@ -30,6 +30,9 @@ $admin=false;
             //for profile is created 
 
         while($row=mysqli_fetch_assoc($result)){
+            $stud_name=$row['name'];
+            $stud_name=strtoupper($stud_name);
+            
             $imagepath='student/'.$row['img'];
             
             $profilePagePath='/proctoring/student/stu_MainProfile.php';
@@ -39,6 +42,7 @@ $admin=false;
     else{
             //for profile not created
 
+        $stud_name="STUDENT";
         $imagepath='/proctoring/image/user.png';
        
         $profilePagePath='/proctoring/student/stu_profile1.php';
@@ -79,7 +83,7 @@ $admin=false;
     </title>
 </head>
 
-<body onload="myFunction()" >
+<body >
 <?php 
 
  
@@ -96,7 +100,7 @@ $admin=false;
                 <span class="navbar-toggler-icon " data-bs-target="#offcanvasExample"></span>
             </button>
             <!-- offcanvas trigger -->
-            <a class="navbar-brand fw-bold text-uppercase me-auto" href="#">Student</a>
+            <a class="navbar-brand fw-bold text-uppercase me-auto" href="#">'.$stud_name.'</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
