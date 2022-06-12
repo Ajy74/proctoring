@@ -66,7 +66,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div>";
     echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
     <strong>Click on Button to Login</strong> 
-    <a href='/proctoring/proctor/pro_login.php'><button class='btn btn-primary'>Login</button></a>
+    <a href='/proctoring/proctor/pro_login.php'><button class='btn lbtn' style=' min-width: 70px;height: 35px;'>Login</button></a>
     <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
   </div>";
    //header("location:/php/project/login_system/login.php");

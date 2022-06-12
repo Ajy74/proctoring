@@ -35,7 +35,7 @@
             $fileext= explode('.',$filename);
             $filecheck= strtolower(end($fileext));
 
-            $extstored=array('png','jpg','jpeg');
+            $extstored=array('png','jpg','jpeg','pdf');
 
             if(in_array($filecheck,$extstored)){
 
@@ -63,7 +63,7 @@
             $afileext= explode('.',$afilename);
             $afilecheck= strtolower(end($afileext));
 
-            $aextstored=array('png','jpg','jpeg','pdf');
+            $aextstored=array('png','jpg','jpeg');
 
             if(in_array($afilecheck,$aextstored)){
 
@@ -75,9 +75,12 @@
                 $result=mysqli_query($con,$sql);
                 header("location:/proctoring/student/leave.php?upload=true");
             }
+            else{
+                header("location:/proctoring/student/leave.php?upload=false");
+            }
         }
-        else{
-            header("location:/proctoring/student/leave.php?upload=false");
-        }
+        // else{
+        //     header("location:/proctoring/student/leave.php?upload=false");
+        // }
     }
 ?>

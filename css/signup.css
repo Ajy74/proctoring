@@ -60,9 +60,24 @@ button{
     font-size: 13px;
 }
 
+.lbtn{
+    min-width: 70px;
+    height: 35px;
+    outline: none;
+    border: none;
+    border-radius: 100px;
+    background: linear-gradient(-30deg,#3b02ed,#8e2ae0 55%);
+    box-shadow: 2px 6px 16px rgba(66,57,238,0.3); 
+    color: #FFFFFF;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
 button:active{
     transform: scale(1.1);
 }
+
 
 .forget{
     font-family: myriad pro;

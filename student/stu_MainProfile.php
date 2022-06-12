@@ -9,8 +9,9 @@ $s_id=$_GET['userno'];
 
 $sql="SELECT * FROM `student_detail` where `student_detail`.`userno`='$s_id' ";
 $result=mysqli_query($con,$sql);
+$num=mysqli_num_rows($result);
 
-if($result){
+if($num){
     $row=mysqli_fetch_assoc($result);
 
     $img=$row['img'];
@@ -54,8 +55,23 @@ if($result){
         $day='NO';
         $hostel='YES';
     }
+    // $created=true;
+}
+else{
+    
+    // $created=false;
+
+    echo '<div class="col-md-3 mx-auto">
+                <div class="  text-dark bg-light mb-3">
+                    <div class="card-header mx-auto">Profile not Created <div>
+                    <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    </div>
+                </div>
+            </div>';
 
 }
+
 
 
 ?>
@@ -75,13 +91,16 @@ if($result){
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/proctoring/css/notice.css" />
     <!-- <link rel="stylesheet" type="text/css" href="css_page/login.css" /> -->
-    <title>Application</title>
+    <title>profile</title>
 </head>
 
 <body class="background text-dark">
 
     <div class="container-fluid ">
         <div class="container  my-5 ">
+
+      
+      
             <div class="card mx-auto col-lg-10 text-dark "
                 style=" font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
                 <h2 class="my-3 mx-2 text-center"><b><u>GITA AUTONOMOUS COLLEGE,BHUBANESHWAR</u></b></h2>
@@ -229,6 +248,7 @@ if($result){
                    
                 </div>
 
+        
             </div>
         </div>
     </div>

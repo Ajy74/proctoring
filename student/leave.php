@@ -27,7 +27,7 @@ $username=$_SESSION['username'];
 <body class="background" onload="myFunction()">
 
     <div class='alert alert-success alert-dismissible fade show my-1' id="uploadTrue" role='alert' style="display:none">
-        <strong>Success!</strong> Notice uploaded Successfuly..😃
+        <strong>Success!</strong> Application uploaded Successfuly..😃
         <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
     </div>
 
