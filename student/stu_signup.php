@@ -2,6 +2,7 @@
 
 $alertpass=false;
 $alertsucc=false;
+$alertEmail=false;
 $exist="";
 if($_SERVER["REQUEST_METHOD"] == "POST"){ 
 
@@ -14,27 +15,38 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
    $fno=$_POST["fno"];
    $nick=$_POST["nick"];
 
-   //check for username exist or not //
 
-   $existSql="SELECT * FROM `studentcred` WHERE username='$username'";
-   $result= mysqli_query($con,$existSql);
-   $numExistRows=mysqli_num_rows($result);
-   if($numExistRows>0){
-       $exist=true;
-   }
-   else{
-       if($password==$cpassword){
-            $hash=password_hash($password,PASSWORD_DEFAULT);
-           $sql="INSERT INTO `studentcred` (`username`, `email`, `password`,`fav_no`,`nickname`,`dt`) VALUES ('$username','$email', '$hash','$fno','$nick', current_timestamp())";
-           $result=mysqli_query($con,$sql);
-           if($result){
-               $alertsucc=true;
-           }
-       }
-       else{
-           $alertpass=true;
-       }
-   }
+    $break = explode('@',$email);
+    $check = end($break);
+
+
+    if($check=='gita.edu.in'){
+
+            //check for username exist or not //
+
+            $existSql="SELECT * FROM `studentcred` WHERE username='$username'";
+            $result= mysqli_query($con,$existSql);
+            $numExistRows=mysqli_num_rows($result);
+            if($numExistRows>0){
+                $exist=true;
+            }
+            else{
+                if($password==$cpassword){
+                        $hash=password_hash($password,PASSWORD_DEFAULT);
+                    $sql="INSERT INTO `studentcred` (`username`, `email`, `password`,`fav_no`,`nickname`,`dt`) VALUES ('$username','$email', '$hash','$fno','$nick', current_timestamp())";
+                    $result=mysqli_query($con,$sql);
+                    if($result){
+                        $alertsucc=true;
+                    }
+                }
+                else{
+                    $alertpass=true;
+                }
+            }
+    }
+    else{
+        $alertEmail=true;
+    }       
 }
 ?>
 
@@ -61,13 +73,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <div class="container-fluid">
         <?php
      if($alertsucc){
-      echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
-      <strong>Success!</strong> Your account has been succesfully created..😃
-      <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
-    </div>";
-    echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
-    <strong>Click on Button to Login</strong> 
-    <a href='/proctoring/student/stu_login.php'><button class='btn btn-primary'>Login</button></a>
+    //   echo "<div class='my-1 alert alert-success alert-dismissible fade show' role='alert'>
+    //   <strong>Success!</strong> Your account has been succesfully created..😃
+    //   <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    // </div>";
+    echo "<div class=' my-1 alert alert-warning alert-dismissible fade show' role='alert'>
+    <strong>Click on Button to send OTP for Email Verification</strong> 
+    <a href='/proctoring/student/stu_otp.php?sent=true&verified=false&email=$email'><button class='btn lbtn' style='box-shadow: 2px 6px 16px rgba(66,57,238,0.3);width: 70px;height: 37px;'>Send</button></a>
     <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
   </div>";
    //header("location:/php/project/login_system/login.php");
@@ -78,6 +90,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
     </div>";
     }
+
+    if($alertEmail){
+        echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+        <strong>Warning!</strong> please use college E-mail Id..
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+      </div>";
+      }
 
     if($alertpass){
       echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>

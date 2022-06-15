@@ -88,6 +88,14 @@
       </div>";
       }
     ?>
+        
+
+        <div class='my-1 alert alert-success alert-dismissible fade show' id="otpverify" style="display:none" role='alert'>
+            <strong>Account Created and OTP verified!</strong>You can login now ..😃 
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+        </div>
+
+
         <div class='alert alert-success alert-dismissible fade show my-1' id="updateTrue" role='alert' style="display:none">
             <strong>Success!</strong> Your Password Updated Successfuly..😃 now you can login 
             <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
@@ -219,7 +227,16 @@
             var update = url.searchParams.get("update");
             var fno =  url.searchParams.get("fno");
             var nick =  url.searchParams.get("nick");
+            var otp =  url.searchParams.get("otp");
             // console.log(update)
+            if(otp == 'true'){
+                var x = document.getElementById("otpverify");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
             if(update == 'true'){
                 var x = document.getElementById("updateTrue");
                 if (x.style.display === "none") {

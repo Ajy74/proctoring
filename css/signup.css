@@ -73,6 +73,9 @@ button{
     letter-spacing: 1px;
     font-size: 13px;
 }
+.lbtn:hover{
+    color: #FFFFFF;
+}
 
 button:active{
     transform: scale(1.1);

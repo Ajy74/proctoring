@@ -66,7 +66,10 @@ button {
 
 .color{
     border: 2px rgb(199, 38, 194) solid ;
-    background-color: rgb(243, 177, 243) ;
+    /* background-color: rgb(243, 177, 243) ; */
+    background-color: #eef1f8;
+  
+    color: white;
 }
 
 .hbtn{
@@ -74,7 +77,7 @@ button {
     color: aliceblue;
 }
 .hbtn:hover{
-    color: aliceblue;
+    color: rgb(199, 38, 194);
 }
 .dropdown-menu{
     text-align: center;
