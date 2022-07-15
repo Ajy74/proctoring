@@ -90,8 +90,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="card text-dark">
                
                <div class="card-body d-flex " style="border-radius: 20px;">
-                   <div class="col-6 ">
-                           <legend class="my-4 mb-1" align="center"><b>SIGNUP FORM</b></legend>
+                   <div class="col-12 col-lg-6 ">
+                           <legend class="my-4 mb-3" align="center"><b>SIGNUP FORM</b></legend>
                           
                            <div class="d-flex my-4 mx-auto d">
                                <label for="username" class=" mx-2 col-form-label"><img src="/proctoring/image/user.png" alt=""

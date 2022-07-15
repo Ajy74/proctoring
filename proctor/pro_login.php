@@ -92,17 +92,19 @@
             <form action="/proctoring/proctor/pro_login.php" method="post">
             <div class=" card text-dark"  style="display:block;">
                 <p class="my-5"></P>
-                <legend class="my-5 mb-1" align="center"><b>LOGIN FORM</b></legend>
-               
-                <div class="card-body  pb-0" style="border-radius: 20px; height:50vh;">
-                           <div class="d-flex my-4 mx-auto d " style="width:50%;">
+            <div class="d-flex">
+                <div class="col-12 col-lg-6 ">
+                    <legend class="my-5 mb-1" align="center"><b>LOGIN FORM</b></legend>
+                
+                    <div class="card-body  pb-0" style="border-radius: 20px; ">
+                           <div class="d-flex my-4 mx-auto d " >
                                <label for="username" class=" mx-2 col-form-label"><img src="/proctoring/image/user.png" alt=""
                                        style="height:20px ;"></label>
                                <input type="text" class="form-control  mx-auto mb-0 i" name="username" id="username"
                                    placeholder="username" style=" box-shadow: 2px 6px 18px rgba(66,57,238,0.3);" required>
                            </div> 
 
-                           <div class="d-flex my-4 mx-auto d " style="width:50%;">
+                           <div class="d-flex my-4 mx-auto d " >
                                <label for="password" class=" mx-2 col-form-label"><img src="/proctoring/image/password.png" alt=""
                                        style="height:20px ;"></label>
                                <input type="password" class="form-control  mx-auto mb-0 i" name="password" id="password"
@@ -114,13 +116,20 @@
                            <div class="  text-center mx-auto my-5 "> 
                                <button type="submit" class="btn btnlogin text-light rounded-circle " style=" box-shadow: 2px 6px 16px rgba(66,57,238,0.5);width: 90px;height: 55px;" >Login</button>
                             </div>
-                </div>
+                    </div>
                     <div  class=" text-center">
-                    <p class="forget" style="font-family: myriad pro;color:#bbc1cb;font-size: 14px;">Click here to <a  data-bs-toggle="modal" data-bs-target="#exampleModal" style=" color: #7d22e3;font-weight: 500;" >Change password </a> or <a  data-bs-toggle="modal" data-bs-target="#exampleModal" style=" color: #7d22e3;font-weight: 500;" > Forget-Password</a> </p>
+                    <p class="forget" style="cursor:pointer; font-family: myriad pro;color:#bbc1cb;font-size: 14px;">Click here to <a  data-bs-toggle="modal" data-bs-target="#exampleModal" style=" color: #7d22e3;font-weight: 500;" >Change password </a> or <a  data-bs-toggle="modal" data-bs-target="#exampleModal" style=" color: #7d22e3;font-weight: 500;" > Forget-Password</a> </p>
                   
                     </div>
-                </form>
-            </div>
+                </div>
+
+                <div class="my-5 pt-5 mx-5 gif" > <img src="/proctoring/image/login_gif.gif" alt="gif" width="300px" height="300px"></div>
+
+            </div>    
+                
+        </form>
+            
+    </div>
 
             
             <!-- Modal -->
@@ -134,7 +143,7 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <div class="card card-body text-dark my-2">
+                                <div class="card card-body text-dark my-2" style="min-height:40vh;background:none;">
                                     <form
                                         action="/proctoring/proctor/forgot_pass.php"
                                         method="get">
@@ -166,7 +175,7 @@
                                                 </div>
                                             </div>
 
-                                            <button type="submit" class="btn btn-success my-3 mb-0 ">Submit</button>
+                                            <button type="submit" class="btn btn-success my-3 mb-0 " style="box-shadow:none;height: 37px;">Submit</button>
                                     </form>
                                 </div>
                             </div>

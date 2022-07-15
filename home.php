@@ -92,6 +92,13 @@ $admin=false;
 
 
     <!-- <link rel="stylesheet" type="text/css" href="css_page/login.css" /> -->
+
+    <style>
+        .color1:hover{
+            background-color: blue;
+        }
+    </style>
+
     <title>
     CSIT DEPARTMENT
     </title>
@@ -159,7 +166,7 @@ $admin=false;
                         </li>
 
                          <li >
-                            <a href="'.$profilePagePath.'?userno='.$s_id.'" class="nav-link px-3 active text-muted">
+                            <a target="_blank" href="'.$profilePagePath.'?userno='.$s_id.'" class="nav-link px-3 active text-muted">
                                 <span class="me-2 ">
                                     <i class="fa-solid fa-circle-user"></i>
                                 </span>
@@ -168,7 +175,7 @@ $admin=false;
                         </li>
 
                         <li >
-                            <a href="/proctoring/student/stu_query.php?s_id='.$s_id.'" class="nav-link px-3 active text-muted">
+                            <a target="_blank" href="/proctoring/student/stu_query.php?s_id='.$s_id.'" class="nav-link px-3 active text-muted">
                                 <span class="me-2 ">
                                     <i class="fa-solid fa-clipboard-question"></i>
                                 </span>
@@ -177,7 +184,7 @@ $admin=false;
                         </li>
 
                         <li >
-                            <a href="/proctoring/student/view_notice.php" class="nav-link px-3 active text-muted">
+                            <a target="_blank" href="/proctoring/student/view_notice.php" class="nav-link px-3 active text-muted">
                                 <span class="me-2 ">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-megaphone" viewBox="0 0 16 16">
                                         <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-.214c-2.162-1.241-4.49-1.843-6.912-2.083l.405 2.712A1 1 0 0 1 5.51 15.1h-.548a1 1 0 0 1-.916-.599l-1.85-3.49a68.14 68.14 0 0 0-.202-.003A2.014 2.014 0 0 1 0 9V7a2.02 2.02 0 0 1 1.992-2.013 74.663 74.663 0 0 0 2.483-.075c3.043-.154 6.148-.849 8.525-2.199V2.5zm1 0v11a.5.5 0 0 0 1 0v-11a.5.5 0 0 0-1 0zm-1 1.35c-2.344 1.205-5.209 1.842-8 2.033v4.233c.18.01.359.022.537.036 2.568.189 5.093.744 7.463 1.993V3.85zm-9 6.215v-4.13a95.09 95.09 0 0 1-1.992.052A1.02 1.02 0 0 0 1 7v2c0 .55.448 1.002 1.006 1.009A60.49 60.49 0 0 1 4 10.065zm-.657.975 1.609 3.037.01.024h.548l-.002-.014-.443-2.966a68.019 68.019 0 0 0-1.722-.082z"/>
@@ -188,7 +195,7 @@ $admin=false;
                         </li>
 
                         <li >
-                            <a href="/proctoring/student/leave.php?s_id='.$s_id.'" class="nav-link px-3 active text-muted">
+                            <a target="_blank" href="/proctoring/student/leave.php?s_id='.$s_id.'" class="nav-link px-3 active text-muted">
                                 <span class="me-2 ">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
                                         <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
@@ -219,21 +226,46 @@ $admin=false;
 <main class="mt-2 pt-3">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12 fw-bold fs-3">Dashboard</div>
+            <div class="col-md-5 col-5 fw-bold fs-3">Dashboard</div>
         </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card text-dark bg-info mb-3">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                      <h5 class="card-title">Info card title</h5>
-                      <p class="card-text">Some quick example text to build on the 
-                          card title and make up the bulk of the cards content.</p>
+    
+            <div class="row my-3">
+                <div class="col-lg-6">
+                    <div class="card  mb-3">
+                        <div class="card-header text-center fw-bold">Query Responses</div>
+                        <div class="card-title" style="height: 200px;">
+
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="col-lg-6 col-md-3">
+                    <div class="card   mb-3">
+                        <div class="card-header text-center fw-bold">New Notice</div>
+                        <div class="card-title" style="height: 200px;">
                         
-        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card  mb-3">
+                        <div class="card-header text-center fw-bold">Query Responses</div>
+                        <div class="card-title" style="height: 200px;">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-3">
+                    <div class="card   mb-3">
+                        <div class="card-header text-center fw-bold">New Notice</div>
+                        <div class="card-title" style="height: 200px;">
+                        
+                        </div>
+                    </div>
+                </div>
+                            
+            </div>
+
     </div>
 </main>
 ';
@@ -259,7 +291,7 @@ $admin=false;
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <form class="d-flex ms-auto" role="search">
-                    <a href="/proctoring/logouthandler.php" ><button class="btn btn-outline-success my-3 my-lg-0 text-uppercase" type="button">logout</button></a>
+                    <a href="/proctoring/logouthandler.php" ><button class="btn btnlogout    my-3 my-lg-0 text-uppercase" type="button">logout</button></a>
                 </form>
             </div>
         </div>
@@ -295,7 +327,7 @@ $admin=false;
                         </li>
 
                          <li >
-                            <a href="#" class="nav-link px-3 active text-muted">
+                            <a target="_blank" href="#" class="nav-link px-3 active text-muted">
                                 <span class="me-2 ">
                                     <i class="fa-solid fa-circle-user"></i>
                                 </span>
@@ -304,10 +336,10 @@ $admin=false;
                         </li>
 
                         <li >
-                                <a href="/proctoring/proctor/showStudent.php?del=false&delete=false" class="nav-link px-3 active text-muted">
+                                <a target="_blank" href="/proctoring/proctor/showStudent.php?del=false&delete=false" class="nav-link px-3 active text-muted">
                                     <span class="me-2 ">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-megaphone" viewBox="0 0 16 16">
-                                            <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-.214c-2.162-1.241-4.49-1.843-6.912-2.083l.405 2.712A1 1 0 0 1 5.51 15.1h-.548a1 1 0 0 1-.916-.599l-1.85-3.49a68.14 68.14 0 0 0-.202-.003A2.014 2.014 0 0 1 0 9V7a2.02 2.02 0 0 1 1.992-2.013 74.663 74.663 0 0 0 2.483-.075c3.043-.154 6.148-.849 8.525-2.199V2.5zm1 0v11a.5.5 0 0 0 1 0v-11a.5.5 0 0 0-1 0zm-1 1.35c-2.344 1.205-5.209 1.842-8 2.033v4.233c.18.01.359.022.537.036 2.568.189 5.093.744 7.463 1.993V3.85zm-9 6.215v-4.13a95.09 95.09 0 0 1-1.992.052A1.02 1.02 0 0 0 1 7v2c0 .55.448 1.002 1.006 1.009A60.49 60.49 0 0 1 4 10.065zm-.657.975 1.609 3.037.01.024h.548l-.002-.014-.443-2.966a68.019 68.019 0 0 0-1.722-.082z"/>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                                            <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
                                         </svg>
                                     </span>
                                     <span>Student List</span>
@@ -315,16 +347,16 @@ $admin=false;
                             </li>
 
                         <li >
-                            <a href="/proctoring/proctor/respond_query.php" class="nav-link px-3 active text-muted">
+                            <a target="_blank" href="/proctoring/proctor/respond_query.php" class="nav-link px-3 active text-muted">
                                 <span class="me-2 ">
                                     <i class="fa-solid fa-clipboard-question"></i>
                                 </span>
-                                <span>Queries</span>
+                                <span>Student Queries</span>
                             </a>
                         </li>
 
                         <li >
-                            <a href="/proctoring/proctor/pro_notice.php" class="nav-link px-3 active text-muted">
+                            <a target="_blank" href="/proctoring/proctor/pro_notice.php" class="nav-link px-3 active text-muted">
                                 <span class="me-2 ">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-megaphone" viewBox="0 0 16 16">
                                         <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-.214c-2.162-1.241-4.49-1.843-6.912-2.083l.405 2.712A1 1 0 0 1 5.51 15.1h-.548a1 1 0 0 1-.916-.599l-1.85-3.49a68.14 68.14 0 0 0-.202-.003A2.014 2.014 0 0 1 0 9V7a2.02 2.02 0 0 1 1.992-2.013 74.663 74.663 0 0 0 2.483-.075c3.043-.154 6.148-.849 8.525-2.199V2.5zm1 0v11a.5.5 0 0 0 1 0v-11a.5.5 0 0 0-1 0zm-1 1.35c-2.344 1.205-5.209 1.842-8 2.033v4.233c.18.01.359.022.537.036 2.568.189 5.093.744 7.463 1.993V3.85zm-9 6.215v-4.13a95.09 95.09 0 0 1-1.992.052A1.02 1.02 0 0 0 1 7v2c0 .55.448 1.002 1.006 1.009A60.49 60.49 0 0 1 4 10.065zm-.657.975 1.609 3.037.01.024h.548l-.002-.014-.443-2.966a68.019 68.019 0 0 0-1.722-.082z"/>
@@ -342,7 +374,7 @@ $admin=false;
                                         <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
                                       </svg>
                                 </span>
-                                <span>Application</span>
+                                <span>Student Applications</span>
                             </a>
                         </li>
                         
@@ -368,19 +400,44 @@ $admin=false;
         <div class="row">
             <div class="col-md-12 fw-bold fs-3">Dashboard</div>
         </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card text-dark bg-info mb-3">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                      <h5 class="card-title">Info card title</h5>
-                      <p class="card-text">Some quick example text to build on the 
-                          card title and make up the bulk of the cards content.</p>
+        
+        <div class="row my-3">
+            <div class="col-lg-6">
+                <div class="card  mb-3">
+                    <div class="card-header text-center fw-bold">New Students</div>
+                    <div class="card-title" style="height: 200px;">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-3">
+                <div class="card   mb-3">
+                    <div class="card-header text-center fw-bold">New Queries</div>
+                    <div class="card-title" style="height: 200px;">
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="card  mb-3">
+                    <div class="card-header text-center fw-bold">Notice From Admin</div>
+                    <div class="card-title" style="height: 200px;">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-3">
+                <div class="card   mb-3">
+                    <div class="card-header text-center fw-bold">New Applications From Students</div>
+                    <div class="card-title" style="height: 200px;">
+                    
                     </div>
                 </div>
             </div>
                         
         </div>
+
     </div>
 </main>
 ';
@@ -404,7 +461,7 @@ elseif($admin){
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <form class="d-flex ms-auto" role="search">
-                        <a href="/proctoring/logouthandler.php" ><button class="btn btn-outline-success my-3 my-lg-0 text-uppercase" type="button">logout</button></a>
+                        <a href="/proctoring/logouthandler.php" ><button class="btn btnlogout    my-3 my-lg-0 text-uppercase" type="button">logout</button></a>
                     </form>
                 </div>
             </div>
@@ -449,36 +506,27 @@ elseif($admin){
                             </li>
 
                             <li >
-                                <a href="/proctoring/admin/showProctor.php" class="nav-link px-3 active text-muted">
+                                <a target="_blank" href="/proctoring/admin/showProctor.php" class="nav-link px-3 active text-muted">
                                     <span class="me-2 ">
-                                        <i class="fa-solid fa-clipboard-question"></i>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                                            <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+                                        </svg>
                                     </span>
-                                    <span>proctors</span>
+                                    <span>proctor List</span>
                                 </a>
                             </li>
 
                             <li >
                                 <a href="/proctoring/admin/showStudent.php?del=false&delete=false" class="nav-link px-3 active text-muted">
                                     <span class="me-2 ">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-megaphone" viewBox="0 0 16 16">
-                                            <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-.214c-2.162-1.241-4.49-1.843-6.912-2.083l.405 2.712A1 1 0 0 1 5.51 15.1h-.548a1 1 0 0 1-.916-.599l-1.85-3.49a68.14 68.14 0 0 0-.202-.003A2.014 2.014 0 0 1 0 9V7a2.02 2.02 0 0 1 1.992-2.013 74.663 74.663 0 0 0 2.483-.075c3.043-.154 6.148-.849 8.525-2.199V2.5zm1 0v11a.5.5 0 0 0 1 0v-11a.5.5 0 0 0-1 0zm-1 1.35c-2.344 1.205-5.209 1.842-8 2.033v4.233c.18.01.359.022.537.036 2.568.189 5.093.744 7.463 1.993V3.85zm-9 6.215v-4.13a95.09 95.09 0 0 1-1.992.052A1.02 1.02 0 0 0 1 7v2c0 .55.448 1.002 1.006 1.009A60.49 60.49 0 0 1 4 10.065zm-.657.975 1.609 3.037.01.024h.548l-.002-.014-.443-2.966a68.019 68.019 0 0 0-1.722-.082z"/>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                                            <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
                                         </svg>
                                     </span>
                                     <span>Student List</span>
                                 </a>
                             </li>
 
-                            <li >
-                                <a href="#" class="nav-link px-3 active text-muted">
-                                    <span class="me-2 ">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
-                                            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
-                                            <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
-                                        </svg>
-                                    </span>
-                                    <span>Application</span>
-                                </a>
-                            </li>
                             
                         </div>
                     </li>
@@ -502,14 +550,37 @@ elseif($admin){
             <div class="row">
                 <div class="col-md-12 fw-bold fs-3">Dashboard</div>
             </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="card text-dark bg-info mb-3">
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                        <h5 class="card-title">Info card title</h5>
-                        <p class="card-text">Some quick example text to build on the 
-                            card title and make up the bulk of the cards content.</p>
+            <div class="row my-3">
+                <div class="col-lg-6">
+                    <div class="card  mb-3">
+                        <div class="card-header text-center fw-bold">Query Responses</div>
+                        <div class="card-title" style="height: 200px;">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-3">
+                    <div class="card   mb-3">
+                        <div class="card-header text-center fw-bold">New Notice</div>
+                        <div class="card-title" style="height: 200px;">
+                        
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card  mb-3">
+                        <div class="card-header text-center fw-bold">Query Responses</div>
+                        <div class="card-title" style="height: 200px;">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-3">
+                    <div class="card   mb-3">
+                        <div class="card-header text-center fw-bold">New Notice</div>
+                        <div class="card-title" style="height: 200px;">
+                        
                         </div>
                     </div>
                 </div>
@@ -566,11 +637,11 @@ elseif($admin){
                       </a>
                       <ul class="dropdown-menu my-2 color" aria-labelledby="navbarDropdown">
                           
-                          <li><a class="dropdown-item" href="proctor/pro_signup.php">proctor</a></li>
+                          <li  class="color1"><a class="dropdown-item" href="proctor/pro_signup.php">proctor</a></li>
                           <li>
-                              <hr class="dropdown-divider">
+                              <hr class=" my-0 mb-0 text-muted dropdown-divider">
                           </li>
-                          <li><a class="dropdown-item" href="student/stu_signup.php">student</a></li>
+                          <li  class="color1"><a class="dropdown-item" href="student/stu_signup.php">student</a></li>
                       </ul>
                   </li>
                   <li class="nav-item dropdown btn  btnlogin text-uppercase mx-2">
@@ -579,15 +650,15 @@ elseif($admin){
                           Login
                       </a>
                       <ul class="dropdown-menu dropdown-menu-end my-2 color" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item " href="admin/admin_login.php">Admin</a></li>
+                          <li class="colorr"><a class=" dropdown-item " href="admin/admin_login.php">Admin</a></li>
                           <li>
-                              <hr class="dropdown-divider">
+                              <hr class=" my-0 mb-0 text-muted dropdown-divider">
                           </li>
-                          <li><a class="dropdown-item" href="proctor/pro_login.php">proctor</a></li>
+                          <li  class="color1"><a class="dropdown-item" href="proctor/pro_login.php">proctor</a></li>
                           <li>
-                              <hr class="dropdown-divider">
+                              <hr class=" my-0 mb-0 text-muted dropdown-divider">
                           </li>
-                          <li><a class="dropdown-item" href="student/stu_login.php">student</a></li>
+                          <li class="color1"><a class="dropdown-item" href="student/stu_login.php">student</a></li>
                       </ul>
                   </li>
                   <!-- <button type="button" class="btn  btnlogin mx-2" >Login</button> -->

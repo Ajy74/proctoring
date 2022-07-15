@@ -4,7 +4,7 @@ button {
   font-family: "Inter", sans-serif;
 }
 :root {
-  --offcanvas-width: 270px;
+  --offcanvas-width: 240px;
   --topNavbarHeight: 56px;
 }
 .sidebar-nav {
@@ -25,7 +25,8 @@ button {
     overflow: auto !important;
   }
   main {
-    margin-left: var(--offcanvas-width);
+    /* margin-left: var(--offcanvas-width); */
+    margin-left: calc(var(--offcanvas-width) + 10px ) ;
   }
   /* this is to remove the backdrop */
   .offcanvas-backdrop::before {

@@ -69,7 +69,10 @@ button {
     /* background-color: rgb(243, 177, 243) ; */
     background-color: #eef1f8;
   
-    color: white;
+    /* color: white; */
+}
+.color1:hover{
+    background-color: blue;
 }
 
 .hbtn{
