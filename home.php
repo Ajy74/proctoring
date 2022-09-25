@@ -97,6 +97,69 @@ $admin=false;
         .color1:hover{
             background-color: blue;
         }
+
+    .img{
+        position: relative;
+       
+    }
+    .txt1{
+        position: absolute;
+        bottom: 16%;
+        color: aliceblue;
+        font-size: 75px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        left: 33%;
+        text-shadow: 2px 2px turquoise;
+    }
+    .txt2{
+        position: absolute;
+        bottom: 7%;
+        color: aliceblue;
+        font-size: 45px;
+        left: 34%;
+        text-shadow: 1px 1px turquoise;
+       align-content: center;
+    }
+    .cards{
+        position: absolute;
+        width: 100vw;
+        bottom: -200px;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        justify-items: center;
+    }
+    
+    .crd{
+        background-color: white;
+        border: 1px solid turquoise;
+        border-top-right-radius: 80px;
+        border-top-left-radius: 10px;
+        width: 172.22px;
+    }
+    .crd:hover{
+        box-shadow: 0px 0px 10px 2px rgb(194, 239, 241);
+    }
+
+    .event{
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        justify-items: center;
+    }
+    
+    .foot{
+        background: rgba(0, 0, 0, 0) url('/proctoring/image/footer.jpeg');
+        background-size: cover;
+    }
+
+    .background{
+    /* background: rgba(0, 0, 0, 0) url('mountain.jpeg');  */
+    background: rgba(0, 0, 0, 0) url('/proctoring/image/backg.jpeg'); 
+    background-size: cover;
+    background-attachment: fixed;
+    background-blend-mode: darken;
+    color: white;
+}
+
     </style>
 
     <title>
@@ -232,7 +295,7 @@ $admin=false;
             <div class="row my-3">
                 <div class="col-lg-6">
                     <div class="card  mb-3">
-                        <div class="card-header text-center fw-bold">Query Responses</div>
+                       
                         <div class="card-title" style="height: 200px;">
 
                         </div>
@@ -240,7 +303,7 @@ $admin=false;
                 </div>
                 <div class="col-lg-6 col-md-3">
                     <div class="card   mb-3">
-                        <div class="card-header text-center fw-bold">New Notice</div>
+                        
                         <div class="card-title" style="height: 200px;">
                         
                         </div>
@@ -249,7 +312,7 @@ $admin=false;
 
                 <div class="col-lg-6">
                     <div class="card  mb-3">
-                        <div class="card-header text-center fw-bold">Query Responses</div>
+                       
                         <div class="card-title" style="height: 200px;">
 
                         </div>
@@ -257,7 +320,7 @@ $admin=false;
                 </div>
                 <div class="col-lg-6 col-md-3">
                     <div class="card   mb-3">
-                        <div class="card-header text-center fw-bold">New Notice</div>
+                        
                         <div class="card-title" style="height: 200px;">
                         
                         </div>
@@ -592,7 +655,7 @@ elseif($admin){
 
   }
   else{
-      echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark background  fixed-top">
+      echo '<nav class="navbar navbar-expand-lg navbar-dark bg-light background  fixed-top">
       <div class="container-fluid">
           <a class="navbar-brand" href="#"><img src="gitalog.png" height="50px" width="200px" alt="logo"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -670,10 +733,84 @@ elseif($admin){
   </nav>
   
 
-  <img src="/proctoring/css/mountain.jpeg" style="height:100vh; width:100vw;"  alt="image">
+<div class="img backg">
+    <img src="/proctoring/image/backg.jpeg" style="height:72vh; width:100vw;"  alt="image">
+    <div class="txt1">WELCOME TO</div>
+    <div class="txt2">CSIT DEPARTMENT</div>
+    <div class="cards">
+        <div class="col-lg-5 col-md-3">
+            <div class="crd   mb-3">
+                <!-- <div class="card-header text-center fw-bold">New Queries</div> -->
+                <div class="card-title text-center" style="height: 200px; ">
+                    <img class="my-3" src="/proctoring/image/pic-1.png" style="height: 100px; width: 100px; border-radius: 50px"  alt="image">
+                   
+                    <h6 class="my-0">Dr. Suvendu Chandan Nayak</h6>
+                    <hr class="dropdown-divider mx-4 my-0 bg-info"/>
+                    <p>CSIT HOD</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5 col-md-3">
+            <div class="crd   mb-3">
+                <!-- <div class="card-header text-center fw-bold">New Queries</div> -->
+                <div class="card-title text-center" style="height: 200px; ">
+                    <img class="my-3" src="/proctoring/image/pic-1.png" style="height: 100px; width: 100px; border-radius: 50px;"  alt="image">
+                   
+                    <h6 class="my-0">Dr. Suvendu Chandan Nayak</h6>
+                    <hr class="dropdown-divider mx-4 my-0 bg-info"/>
+                    <p>CSIT HOD</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5 col-md-3">
+            <div class="crd   mb-3">
+                <!-- <div class="card-header text-center fw-bold">New Queries</div> -->
+                <div class="card-title text-center" style="height: 200px; ">
+                    <img class="my-3" src="/proctoring/image/pic-1.png" style="height: 100px; width: 100px; border-radius: 50px"  alt="image">
+                   
+                    <h6 class="my-0">Dr. Suvendu Chandan Nayak</h6>
+                    <hr class="dropdown-divider mx-4 my-0 bg-info"/>
+                    <p>CSIT HOD</p>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="events" style="margin-top: 250px; ">
+    <h1 class="text-center" style="color: blueviolet; text-shadow: 1px 1px turquoise;">Events Organised By CSIT Department</h1>
+    <div class="event my-3 ">
+
+        <div>
+            <img src="/proctoring/image/event.jpg" height="250px" width="200px"  alt="image">
+        </div>
+
+        <div>
+            <img src="/proctoring/image/event.jpg" height="250px" width="200px"  alt="image">
+        </div>
+
+        <div>
+            <img src="/proctoring/image/event.jpg" height="250px" width="200px"  alt="image">
+        </div>
+        
+        <div>
+            <img src="/proctoring/image/event.jpg" height="250px" width="200px"  alt="image">
+        </div>
+        
+    
+    </div>
+</div>
+
 
   <!-- footer -->
-    <div class="container-fluid bg-dark text-light ">
+    <div class="container-fluid foot  text-light " style="margin-top: 400px;">
 
         <p class="text-center mb-0 pt-4 pb-4">
 

@@ -45,7 +45,7 @@
                                 $showalert=true;
                                 if($showalert){
                                     echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <strong>submited!</strong> your doubt will be clear soon..
+                                    <strong>submited!</strong> responded
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>';
                                 }
@@ -58,7 +58,7 @@
 
                     echo '<div class=" text-info text-center mb-4">
                             <hr class="dropdown-divider "/>
-                            <h1><b>List of Doubts of Students</b></h1>
+                            <h1><b>List of Queries of Students</b></h1>
                             <hr class="dropdown-divider"/>
                          </div>';
                     $showquery=true;    

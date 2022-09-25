@@ -11,7 +11,8 @@ button {
 }
 
 .background{
-    background: rgba(0, 0, 0, 0) url('mountain.jpeg');
+    /* background: rgba(0, 0, 0, 0) url('mountain.jpeg');  */
+    background: rgba(0, 0, 0, 0) url('/proctoring/image/backg.jpeg'); 
     background-size: cover;
     background-attachment: fixed;
     background-blend-mode: darken;
@@ -88,3 +89,25 @@ button {
 /* .menu2[data-bs-popper] {
     left: -95px;
 } */
+
+.img{
+    position: relative;
+   
+}
+.txt1{
+    position: absolute;
+    bottom: 15%;
+    color: aliceblue;
+    font-size: 75px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    left: 33%;
+    text-shadow: 2px 2px turquoise;
+}
+.txt2{
+    position: absolute;
+    bottom: 6%;
+    color: aliceblue;
+    font-size: 45px;
+    left: 34%;
+    text-shadow: 1px 1px turquoise;
+}
