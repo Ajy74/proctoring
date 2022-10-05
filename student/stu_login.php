@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($num == 1) {
 
         while ($row = mysqli_fetch_assoc($result)) {
-            if (password_verify($password, $row['password'])) {
+            if (password_verify($password, $row['password']) && ($username==$row['username']) ) {
                 $login = true;
                 session_start();
                 $_SESSION['Sloggedin'] = true;

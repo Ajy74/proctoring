@@ -5,6 +5,11 @@
     // $user=$_GET['user'];
     $id=$_GET['s_id'];
 
+    $sqll = "UPDATE `query` SET `seen_by_stu` = '1' where `s_id`=$id";
+    $ress = mysqli_query($con,$sqll);
+
+    echo $id;
+
     session_start();
     $name= $_SESSION['username'];
 
@@ -12,7 +17,18 @@
 
         $query_desc=$_POST['desc'];
 
-        $sql="INSERT INTO `query` (`query_desc`, `s_id`, `user_n`, `dummy`,  `timestamp`) VALUES ('$query_desc', '$id', '$name', '0', current_timestamp())";
+        $sql1 = "SELECT * FROM student_detail  where `userno`='$id' ";
+        $res1 = mysqli_query($con,$sql1);
+        $num1 = mysqli_num_rows($res1);
+
+        if($num1 == 1){
+            $row1 = mysqli_fetch_assoc($res1);
+
+            $branch = $row1['branch'];
+            $grp = $row1['grp'];
+        }
+
+        $sql="INSERT INTO `query` (`query_desc`, `s_id`, `user_n`, `branch`, `grp`, `timestamp`) VALUES ('$query_desc', '$id', '$name', '$branch','$grp', current_timestamp())";
        
         $result=mysqli_query($con,$sql);
             if($result)
@@ -44,7 +60,7 @@
     <link rel="stylesheet" type="text/css" href="/proctoring/css/query.css" />
     <link rel="stylesheet" type="text/css" href="/proctoring/fontawesome/css/all.css">
     <!-- <link rel="stylesheet" type="text/css" href="css_page/login.css" /> -->
-    <title>PROCTORING-FORM</title>
+    <title>Query</title>
 </head>
 
 <body class="background" style=" font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">

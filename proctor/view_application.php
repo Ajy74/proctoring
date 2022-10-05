@@ -2,25 +2,25 @@
 
     include 'dbconnect.php';
 
-    $sid = $_GET['s_id'];
-
-    $sql1 = "SELECT * FROM student_detail  where `userno`='$sid' ";
+    $userno=$_GET['userno'];
+    $sql1 = "SELECT * FROM `proctor_detail` Where `userno`=$userno";
     $res1 = mysqli_query($con,$sql1);
+
     $num1 = mysqli_num_rows($res1);
 
-    if($num1){
-        $row1 = mysqli_fetch_array($res1);
-        $branch = $row1['branch'];
-        $grp = $row1['grp'];
+    if($num1 == 1){
+        $row1 = mysqli_fetch_assoc($res1);
+        $dept = $row1['for_branch']; 
+        $group = $row1['grp']; 
     }
 
-    $sql=" SELECT * FROM `images` where `images`.`is_notice`='1' and `branch`='$branch' and `grp`='$grp' ORDER BY  `images`.`image_id` DESC ";
+    $sql=" SELECT * FROM `images` where `images`.`is_application`=1 and `images`.`seen`=0 and `images`.`approve`=-1 and `images`.`branch` = '$dept' and `images`.`grp` = '$group' ORDER BY `images`.`image_id` DESC ";
     $result=mysqli_query($con,$sql);
     $num=mysqli_num_rows($result);
     
-
     if($num){
         $present=true;
+        $userno=$_GET['userno'];
     }
     else{
         $present=false;
@@ -42,7 +42,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/proctoring/css/notice.css" />
     <!-- <link rel="stylesheet" type="text/css" href="css_page/login.css" /> -->
-    <title>All Notice</title>
+    <title>View_Application</title>
 </head>
 
 <body class="background text-dark">
@@ -62,9 +62,10 @@
                     
                  //doubt here --it fetch less than 1 present //
 
-                   $img=$row['notice'];
+                   $img=$row['application'];
                    $time=$row['dt'];
                    $by=$row['send_by'];
+                   $aid=$row['image_id'];
 
                    $afilename=$img;
        
@@ -77,12 +78,14 @@
                                     <div class="card-header">'.$time.'</div>
                                     <div class="card-body">
                                     <h5 class="card-title">Send by:- '.$by.'</h5>
-                                    <embed class="col-12 "  alt="image" src="/proctoring/image/'.$img.'" height="135px"/>
+                                    <a target="blank"  href="/proctoring/image/'.$img.'" ><embed class="col-12 "  alt="image" src="/proctoring/image/'.$img.'" height="135px"/></a>
                                     
                                     </br>
-                                        <div class="d-flex justify-content-center my-1">
-                                            <a target="blank"  href="/proctoring/image/'.$img.'" ><button class="btn btn-primary pt-1 pb-1">Open</button></a>
-                                        </div>  
+                                    <div class="d-flex justify-content-between my-1 mb-0">
+                                        <button class="btn btn-primary pt-1 pb-1">Aprove</button>
+                                        <a href="#" ><img alt="image" src="/proctoring/image/send.png" height="25px"/></a>
+                                    </div>
+                                    
                                     </div>
                                 </div>
                             </div>';  
@@ -93,12 +96,14 @@
                                 <div class="card-header">'.$time.'</div>
                                 <div class="card-body">
                                 <h5 class="card-title">Send by:- '.$by.'</h5>
-                                <img class="col-12 "  alt="image" src="/proctoring/image/'.$img.'" height="135px"/>
-
+                                <a target="blank" href="/proctoring/image/'.$img.'" ><img class="col-12 "  alt="image" src="/proctoring/image/'.$img.'" height="135px"/></a>
+                                
                                 </br>
-                                    <div class="d-flex justify-content-center my-1">
-                                        <a target="blank"  href="/proctoring/image/'.$img.'" ><button class="btn btn-primary pt-1 pb-1">Open</button></a>
-                                    </div>  
+                                <div class="d-flex justify-content-between my-1 mb-0">
+                                    <a href="/proctoring/proctor/approve.php?userno='.$userno.'&aid='.$aid.'" ><button class="btn btn-primary pt-1 pb-1 " id="a'.$aid.'">Aprove</button></a>
+                                    <a href="/proctoring/proctor/denied.php?userno='.$userno.'&aid='.$aid.'" ><button class="btn btn-danger pt-1 pb-1 mx-1" id="a'.$aid.'">Denied</button></a>
+                                    <a href="#" ><img id="a'.$aid.'" alt="image" src="/proctoring/image/send.png" height="25px"/></a>
+                                </div>
 
                                 </div>
                             </div>

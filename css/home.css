@@ -45,14 +45,14 @@ button {
 }
 
 .btnsign:hover{
-    box-shadow: 0px 0px 10px 2px rgb(207, 206, 206);
-    color: white;
+    box-shadow: 0px 0px 8px 2px  rgb(192, 17, 186);
+    /* color: white; */
     cursor: pointer;
 }
 
 .btnlogin:hover{
-    box-shadow: 0px 0px 10px 2px rgb(207, 206, 206);
-    color: white;
+    box-shadow: 0px 0px 8px 2px  rgb(192, 17, 186);
+    /* color: white; */
     cursor: pointer;
 }
 .btnlogout:hover{
@@ -78,11 +78,11 @@ button {
 
 .hbtn{
     padding: 0;
-    color: aliceblue;
+    color: rgb(192, 17, 186);
 }
-.hbtn:hover{
+/* .hbtn:hover{
     color: rgb(199, 38, 194);
-}
+} */
 .dropdown-menu{
     text-align: center;
 }
@@ -110,4 +110,34 @@ button {
     font-size: 45px;
     left: 34%;
     text-shadow: 1px 1px turquoise;
+}
+.cards{
+    position: absolute;
+    width: 100vw;
+    bottom: -200px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-items: center;
+}
+
+.crd{
+    background-color: white;
+    border: 1px solid turquoise;
+    border-top-right-radius: 80px;
+    border-top-left-radius: 10px;
+    width: 172.22px;
+}
+.crd:hover{
+    box-shadow: 0px 0px 10px 2px rgb(194, 239, 241);
+}
+
+.event{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-items: center;
+}
+
+.foot{
+    background: rgba(0, 0, 0, 0) url('/proctoring/image/footer.jpeg');
+    background-size: cover;
 }

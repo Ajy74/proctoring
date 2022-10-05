@@ -2,25 +2,13 @@
 
     include 'dbconnect.php';
 
-    $sid = $_GET['s_id'];
-
-    $sql1 = "SELECT * FROM student_detail  where `userno`='$sid' ";
-    $res1 = mysqli_query($con,$sql1);
-    $num1 = mysqli_num_rows($res1);
-
-    if($num1){
-        $row1 = mysqli_fetch_array($res1);
-        $branch = $row1['branch'];
-        $grp = $row1['grp'];
-    }
-
-    $sql=" SELECT * FROM `images` where `images`.`is_notice`='1' and `branch`='$branch' and `grp`='$grp' ORDER BY  `images`.`image_id` DESC ";
+    $sql=" SELECT * FROM `admin_notice`  ORDER BY `admin_notice`.`nid`  DESC ";
     $result=mysqli_query($con,$sql);
     $num=mysqli_num_rows($result);
     
-
     if($num){
         $present=true;
+        $userno = $_GET['userno'];
     }
     else{
         $present=false;
@@ -42,12 +30,24 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/proctoring/css/notice.css" />
     <!-- <link rel="stylesheet" type="text/css" href="css_page/login.css" /> -->
-    <title>All Notice</title>
+    <title>View_Notice</title>
 </head>
 
-<body class="background text-dark">
+<body class="background text-dark" onload="myFunction()">
 
     <div class="container-fluid">
+
+    <div class='alert alert-success alert-dismissible fade show my-1' id="shareTrue" role='alert' style="display:none">
+        <strong>Success!</strong> Notice Shared To Students Successfuly..😃
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>
+
+    <div class='alert alert-danger alert-dismissible fade show my-1' role='alert' id="sharefalse" style="display:none">
+        <strong>Notice Shared Failed! </strong> Something Went Wrong ..😟
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>
+
+
         <div class="container my-4 ">
 
             <div class="row">
@@ -62,9 +62,10 @@
                     
                  //doubt here --it fetch less than 1 present //
 
-                   $img=$row['notice'];
+                   $img=$row['img'];
                    $time=$row['dt'];
                    $by=$row['send_by'];
+                   $nid = $row['nid'];
 
                    $afilename=$img;
        
@@ -76,13 +77,15 @@
                                 <div class=" card text-dark bg-light mb-3" style="min-height:40vh;">
                                     <div class="card-header">'.$time.'</div>
                                     <div class="card-body">
-                                    <h5 class="card-title">Send by:- '.$by.'</h5>
+                                    <h6 class="card-title">Send by:- '.$by.'</h6>
                                     <embed class="col-12 "  alt="image" src="/proctoring/image/'.$img.'" height="135px"/>
                                     
                                     </br>
-                                        <div class="d-flex justify-content-center my-1">
-                                            <a target="blank"  href="/proctoring/image/'.$img.'" ><button class="btn btn-primary pt-1 pb-1">Open</button></a>
-                                        </div>  
+                                    <div class="d-flex justify-content-between my-1">
+                                        <a target="blank"  href="/proctoring/image/'.$img.'" ><button class="btn btn-primary pt-1 pb-1">Open</button></a>
+                                        <a href="/proctoring/proctor/share_notice.php?userno='.$userno.'&notice_id='.$nid.'" ><button class="btn btn-success pt-1 pb-1">Share</button></a>
+                                    </div>    
+                                    
                                     </div>
                                 </div>
                             </div>';  
@@ -93,13 +96,12 @@
                                 <div class="card-header">'.$time.'</div>
                                 <div class="card-body">
                                 <h5 class="card-title">Send by:- '.$by.'</h5>
-                                <img class="col-12 "  alt="image" src="/proctoring/image/'.$img.'" height="135px"/>
-
+                                <img  class="col-12 "  alt="image" src="/proctoring/image/'.$img.'" height="135px"/>
                                 </br>
-                                    <div class="d-flex justify-content-center my-1">
-                                        <a target="blank"  href="/proctoring/image/'.$img.'" ><button class="btn btn-primary pt-1 pb-1">Open</button></a>
-                                    </div>  
-
+                                <div class="d-flex justify-content-between my-1">
+                                    <a target="blank" href="/proctoring/image/'.$img.'" ><button class="btn btn-primary pt-1 pb-1">Open</button></a>
+                                    <a href="/proctoring/proctor/share_notice.php?userno='.$userno.'&notice_id='.$nid.'" ><button class="btn btn-success pt-1 pb-1">Share</button></a>
+                                </div>
                                 </div>
                             </div>
                         </div>';  
@@ -143,6 +145,48 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
+
+    <script>
+    function myFunction() {
+        // window.location.href = "http://localhost/proctoring/"
+        urlString = window.location.href;
+        var url = new URL(urlString);
+    
+        var share = url.searchParams.get("share");
+
+        // console.log(update)
+       
+
+        if (share == 'true') {
+            var x = document.getElementById("shareTrue");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        if (share == 'false') {
+           
+            var x = document.getElementById("sharefalse");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+
+    }
+
+    // function noticelist(){
+
+    //     var p = document.getElementById("")
+
+    // }
+
+    </script>
+
 </body>
 
 </html>

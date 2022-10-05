@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="/proctoring/css/query.css" />
     <link rel="stylesheet" type="text/css" href="/proctoring/fontawesome/css/all.css">
     <!-- <link rel="stylesheet" type="text/css" href="css_page/login.css" /> -->
-    <title>PROCTORING-FORM</title>
+    <title>Student Query</title>
 </head>
 
 <body class="background"  style=" font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
@@ -42,6 +42,10 @@
                         $result=mysqli_query($con,$sql);
                             if($result)
                             {
+
+                                $sql1 = "UPDATE `query` SET `responded` = 1 WHERE `query_id` = '$respond_queryid' ";
+                                $res1 = mysqli_query($con,$sql1);
+
                                 $showalert=true;
                                 if($showalert){
                                     echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -54,7 +58,21 @@
                     }
 
 
-                    $sql="SELECT * FROM `query` where dummy='0'";
+                    $id = $_GET['userno'];
+
+                    $sql1 = "SELECT * FROM proctor_detail  where `userno`='$id'  ";
+                    $res1 = mysqli_query($con,$sql1);
+                    $num1 = mysqli_num_rows($res1);
+
+                    if($num1 == 1){
+                        $row1 = mysqli_fetch_array($res1);
+
+                        $branch = $row1['for_branch'];
+                        $grp = $row1['grp'];
+                    }
+
+
+                    $sql="SELECT * FROM `query` where `branch`='$branch' and `grp`='$grp' and `responded`=0  ORDER BY `query_id` DESC";
 
                     echo '<div class=" text-info text-center mb-4">
                             <hr class="dropdown-divider "/>
@@ -77,7 +95,7 @@
                         
                         if($_SERVER["REQUEST_METHOD"]=="POST"){    
                             if($check=='true'.$query_id){
-                                $color="bg-success";
+                                $color="rgb(149, 249, 140)";
                                 $visibility="invisible";
                                 // $i=1;
                                 // $n++;
@@ -120,7 +138,7 @@
                                                     </button>
                                                     <div class="collapse "  id="collapse'.$query_id.'">
                                                     <div class="card card-body  my-2">
-                                                        <form action=" /proctoring/proctor/respond_query.php?qid='.$query_id.'&tname=desc'.$query_id.'&send=true'.$query_id.'&sendby='.$name.'" method="post">
+                                                        <form action=" /proctoring/proctor/respond_query.php?qid='.$query_id.'&tname=desc'.$query_id.'&send=true'.$query_id.'&sendby='.$name.'&userno='.$id.'" method="post">
                                                         <div class="form-floating mb-2 text-center pb-0">
                                                             <textarea class="form-control"  id="desc'.$query_id.'" style="height: 100px" name="desc'.$query_id.'" required></textarea>
                                                             <label for="desc'.$query_id.'"><b>Answer this Query..</b></label>
@@ -155,7 +173,7 @@
                                                     </button>
                                                     <div class="collapse "  id="collapse'.$query_id.'">
                                                     <div class="card card-body  my-2">
-                                                        <form action=" /proctoring/proctor/respond_query.php?qid='.$query_id.'&tname=desc'.$query_id.'&send=true'.$query_id.'&sendby='.$name.'" method="post">
+                                                        <form action=" /proctoring/proctor/respond_query.php?qid='.$query_id.'&tname=desc'.$query_id.'&send=true'.$query_id.'&sendby='.$name.'&userno='.$id.'" method="post">
                                                         <div class="form-floating mb-2 text-center pb-0">
                                                             <textarea class="form-control"  id="desc'.$query_id.'" style="height: 100px" name="desc'.$query_id.'" required></textarea>
                                                             <label for="desc'.$query_id.'"><b>Answer this Query..</b></label>

@@ -1,9 +1,22 @@
 <?php 
 
  
- 
-
         include 'dbconnect.php';
+
+        $userno = $_GET['userno'];
+
+
+        $sql = "SELECT * FROM `proctor_detail` Where `userno`=$userno";
+        $res = mysqli_query($con,$sql);
+
+        $num = mysqli_num_rows($res);
+
+        if($num == 1){
+          $row = mysqli_fetch_assoc($res);
+          $dept = $row['for_branch']; 
+          $group = $row['grp']; 
+        }
+
 
 
 ?>
@@ -36,13 +49,13 @@
     <title>Students_Details</title>
 </head>
 
-<body class="background text-dark" onload="delete()" >
+<body class="background text-dark" >
 
     <div class="container-fluid">
 
 
     <div class="container my-4">
-    <h1 class="text-primary text-center my-4 font" style=" font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><b>List Of Students</b></h1>
+    <h1 class="text-primary text-center my-4 font" style=" font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><b>List Of Students In Your Group</b></h1>
     <hr class="text-primary">
 
     <table class="table table-striped my-3" id="myTable">
@@ -53,14 +66,14 @@
           <th scope="col">Branch</th>
           <th scope="col">Roll No</th>
           <th class="mx-3" scope="col">Action</th>
-          <th scope="col">Asign Group</th>
+          <th scope="col">Send Message</th>
         </tr>
       </thead>
 
       
       <tbody>
       <?php 
-              $sql ="SELECT * FROM `student_detail` ";
+              $sql ="SELECT * FROM `student_detail` Where  `branch` = '$dept' and `grp` = '$group'   ";
               $result = mysqli_query($con,$sql);
                 $present=0;
               $sno=0;
@@ -73,9 +86,11 @@
                             <td>".$row['name']."</td>
                             <td>".$row['branch']."</td>
                             <td>".$row['roll']."</td>
-                            <td><a   class='text-decoration-none' href='/proctoring/student/stu_MainProfile.php?userno=".$userno."'  target='_blank'> <button id='$sno' >View</button> </a>
-                            <a  class='text-decoration-none' href='/proctoring/proctor/showStudent.php?del=true&delete=".$userno."'> <button  class='delete mx-2 ' id='$userno' type='button'>Delete</button> </a>  </td>
-                            <td> group</td>
+                            <td>
+                              <a   class='text-decoration-none' href='/proctoring/student/stu_MainProfile.php?userno=".$userno."'  target='_blank'> <button id='$sno' >View</button> </a>
+                              <a  class='text-decoration-none' href='/proctoring/proctor/showStudent.php?del=true&delete=".$userno."'> <button  class='delete mx-2 ' id='$userno' type='button'>Delete</button> </a>  
+                            </td>
+                            <td><button id='$sno' > Message</button></td>
                     </tr>";
                    
               }

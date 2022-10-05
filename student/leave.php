@@ -3,6 +3,10 @@
 session_start();
 $username=$_SESSION['username'];
 
+$id = $_GET['s_id'];
+
+
+
 
 ?>
 
@@ -42,7 +46,7 @@ $username=$_SESSION['username'];
                 <div class="col-md-6 mx-auto my-auto ">
                     <div class="card text-dark  mb-3">
                         <div class="card-body">
-                            <form class="col-10 mx-auto text-center" action="/proctoring/imageUploder.php?by=<?php echo $username?>"
+                            <form class="col-10 mx-auto text-center" action="/proctoring/imageUploder.php?n=0&a=1&userno=<?php echo $id?>&by=<?php echo $username?>"
                                 method="post" enctype="multipart/form-data">
                                 <h1 class="text-center text-primary"><b>Upload Application</b></h1>
                                 <hr>
@@ -90,19 +94,19 @@ $username=$_SESSION['username'];
 
     <!-- <?php 
 
-                    include 'dbconnect.php';
+                    // include 'dbconnect.php';
 
-                    $sql="SELECT * FROM images where is_notice='1'";
-                    $result=mysqli_query($con,$sql);
+                    // $sql="SELECT * FROM images where is_notice='1'";
+                    // $result=mysqli_query($con,$sql);
 
-                    $num=mysqli_num_rows($result);
+                    // $num=mysqli_num_rows($result);
 
-                    while($row=mysqli_fetch_assoc($result)){
-                        $img=$row['notice'];
+                    // while($row=mysqli_fetch_assoc($result)){
+                    //     $img=$row['notice'];
                        
-                        echo '<img src="/proctoring/image/'.$img.'" height="100px" width="100px">';
-                        // echo '<img src="data:image;base64,'.base64_encode($row['notice']).'" height="100px" width="100px">';
-                    }
+                    //     echo '<img src="/proctoring/image/'.$img.'" height="100px" width="100px">';
+                    //     // echo '<img src="data:image;base64,'.base64_encode($row['notice']).'" height="100px" width="100px">';
+                    // }
 
                 ?>
                  -->

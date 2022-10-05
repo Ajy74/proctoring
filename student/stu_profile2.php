@@ -23,7 +23,13 @@
               <strong>Success!</strong> You profile has been created..😃Click for<i class='fa-solid fa-arrow-right'></i><a href='/proctoring/home.php?sprofile=true' <button type='button' class='btn'  style='border: 2px rgb(199, 38, 194) solid ;background-color: purple ;color: white; box-shadow: 2px 6px 18px rgba(66,57,238,0.2);'> DASHBOARD </button></a>
               <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
           </div>";
-            }   
+              
+
+          echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+              <strong>Note :</strong> You have to wait For Admin Approval to Access All features of your Dashborad.
+              <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+          </div>";
+        }
      }
   
   

@@ -28,7 +28,7 @@
     });
   </script>
 
-    <title>Students_Details</title>
+    <title>Proctor List</title>
 </head>
 
 <body class="background text-dark" >
@@ -36,7 +36,7 @@
     <div class="container-fluid">
 
     <div class="container my-4 ">
-    <h1 class="text-primary text-center my-4 font" style=" font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><b>List Of Students</b></h1>
+    <h1 class="text-primary text-center my-4 font" style=" font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><b>List Of Proctor</b></h1>
     <hr class="text-primary">
 
     
@@ -45,15 +45,15 @@
         <tr>
           <th scope="col">S.No</th>
           <th scope="col">Name</th>
-          <th scope="col">Branch</th>
-          <th scope="col">Roll No</th>
+          <th scope="col">Department</th>
+          <th scope="col">Asigned Group</th>
           <th class="mx-3" scope="col">Action</th>
         </tr>
       </thead>
 
       <tbody>
       <?php 
-              $sql ="SELECT * FROM `student_detail` where `status`= 1 ";
+              $sql ="SELECT * FROM `proctor_detail` where `status`= 1 ";
               $result = mysqli_query($con,$sql);
                 $present=0;
               $sno=0;
@@ -64,30 +64,19 @@
                 echo  "<tr>
                             <th scope='row'>".$sno."</th>
                             <td>".$row['name']."</td>
-                            <td>".$row['branch']."</td>
-                            <td>".$row['roll']."</td>
-                            <td><a   class='text-decoration-none' href='/proctoring/student/stu_MainProfile.php?userno=".$userno."'  target='_blank'> <button id='$sno'>View</button> </a>
-                            <a  class='text-decoration-none' href='/proctoring/admin/showStudent.php?del=true&delete=".$userno."'> <button  class='delete mx-2 ' id='$userno' type='button'>Delete</button> </a>  </td>
+                            <td>".$row['for_branch']."</td>
+                            <td>
+                                Group ".$row['grp']."
+                            </td>
+
+                            <td>
+                                <a   class='text-decoration-none' href='/proctoring/proctor/pro_MainProfile.php?userno=".$userno."'  target='_blank'> <button id='$sno'>Change Group</button> </a>
+                            </td>
                     </tr>";
                    
               }
 
-              $check=$_GET['del'];
-
-              if($check=='true'){
-               
-                $usern=$_GET['delete'];
-
-                $sql = " DELETE FROM `student_detail` WHERE `student_detail`.`userno` = $usern";
-                $result=mysqli_query($con,$sql);
-
-                $sql = "DELETE FROM `studentcred` WHERE `studentcred`.`sno` = $usern";
-                $result=mysqli_query($con,$sql);
-               
-
-                 header("Refresh:0; url=/proctoring/admin/showStudent.php?del=false&delete=false");
-
-              }
+              
 
               if($present==0){
                 echo '<div class="col-md-10 my-2 mb-2 mx-auto">
